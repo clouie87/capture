@@ -1,23 +1,23 @@
-<div class="popup-fade auth-forms" id="logPopup" title="Login">
+<div class="popup-fade auth-forms" id="logPopup" title="Signup">
 
   <div class="panel-body">
-    <form ng-submit="signup(user)">
+    <form name="signup" ng-model= "user" ng-submit="signup(user)">
       <label class="item item-input">
         <i class="ion-ios-person" style="font-size: 30px"></i>&nbsp;&nbsp;
-        <input class="loginPlaceholders" type="text" placeholder="Name" ng-model="$parent.user.name">
+        <input class="loginPlaceholders" type="text" placeholder="Name" ng-model="user.name">
       </label>
 
       <label class="item item-input">
         <i class="ion-ios-email" style="font-size: 30px"></i>&nbsp;&nbsp;
-        <input class="loginPlaceholders" type="text" placeholder="E-mail" ng-model="$parent.user.email">
+        <input class="loginPlaceholders" type="text" placeholder="E-mail" ng-model="user.email">
       </label>
 
       <label class="item item-input">
         <i class="ion-unlocked" style="font-size: 24px"></i>&nbsp;&nbsp;
-        <input type="password" placeholder="Password" ng-model="$parent.user.password">
+        <input type="password" placeholder="Password" ng-model="user.password">
       </label>
 
-      <input type="submit" value="Signup" class="button button-royal button-block">
+      <!--<input type="submit" value="Signup" class="button button-royal button-block">-->
     </form>
   </div>
 </div>

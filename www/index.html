@@ -44,7 +44,7 @@
   <script src="js/services.js"></script>
 
   <script src="js/controllers/photo.js"></script>
-  <script src="js/controllers/login.js"></script>
+  <!--<script src="js/controllers/login.js"></script>-->
   <script src="js/controllers/create.js"></script>
   <script src="js/controllers/auth.js"></script>
   <script src="js/controllers/nav.js"></script>
@@ -59,10 +59,16 @@
 -->
 <ion-nav-bar class="bar-positive" ng-controller="NavController">
   <ion-nav-back-button></ion-nav-back-button>
+
   <ion-nav-buttons side="right">
-    <button ng-hide = "!signedIn()" id="logout" class="button button-clear button-light" ng-click="logout()">
-      Logout
+    <button style="margin-top: -2%; padding:0; height:43px" class= "row button-clear" ng-click="profile()">
+        <img ng-show="signedIn()" ng-src = "{{currentUser.profile.gravatar}}" class="img-circle gravatar">
+        &nbsp;
+        <p style="margin-top: 7px">{{currentUser.profile.name}}</p>
     </button>
+    <!--<button ng-hide = "!signedIn()" id="logout" class="button button-clear button-light" ng-click="logout()">-->
+      <!--Logout-->
+    <!--</button>-->
   </ion-nav-buttons>
 </ion-nav-bar>
 

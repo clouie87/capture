@@ -12,18 +12,14 @@ app.controller('AuthController', function($scope, $state, Auth, $ionicPopup) {
       scope: $scope,
       buttons:[{
         text: 'x',
-        type:'cancel',
-        class: 'close'
+        type:'button button-icon icon ios-close-round'
         },
         {
           text: 'Login',
-          type:'submit',
-          class: 'energized',
+          type:'button-energized',
           onTap: function(user){
             user= $scope.user;
-            console.log(user);
             Auth.login(user).then(function () {
-              //toaster.pop('success', "Logged in successfully!");
               console.log("Logged in succesfully!");
               $state.go('tab.dash');
 
@@ -49,44 +45,25 @@ app.controller('AuthController', function($scope, $state, Auth, $ionicPopup) {
       scope: $scope,
       title: 'Signup',
       buttons:[{
-        text: 'x',
-        type:'cancel',
-        class: 'close'
+        type:'button button-icon icon ios-close-round',
+        text: 'x'
+      },
+      {
+        text: 'Signup',
+        type:'button-royal',
+        //class: 'royal',
+        onTap: function(user){
+          user= $scope.user;
+          Auth.signup(user).then(function () {
+            console.log("Signup succesfully!");
+            $state.go('tab.dash');
+          }, function (err) {
+            console.log('Error...');
+            //toaster.pop('error', "Oops there was an error!");
+          })
+        }
       }]
     })
   };
-
-  //if(Auth.signedIn()){
-  //  console.log('user is singed in');
-  //  ////  $state.go('tab.dash');
-  //}
-
-
-  $scope.signup = function (user) {
-    Auth.signup(user).then(function () {
-      //toaster.pop('success', "Registered successfully!");
-      console.log("Signup succesfully!");
-      $scope.closeLogin = $ionicPopup.close();
-      $state.go('tab.dash');
-
-    }, function (err) {
-      console.log('Error...');
-      //toaster.pop('error', "Oops there was an error!");
-    })
-  };
-
-  //$scope.login = function (user) {
-  //  console.log('in log in fuction and user is ', user);
-  //  Auth.login(user).then(function () {
-  //    //toaster.pop('success', "Logged in successfully!");
-  //    console.log("Logged in succesfully!");
-  //
-  //    //$state.go('tab.dash');
-  //
-  //  }, function (err) {
-  //    console.log('Error...');
-  //    //toaster.pop('error', "Oops there was an error!");
-  //  })
-  //};
 
 });

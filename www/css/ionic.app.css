@@ -22,6 +22,13 @@ $dark:                            #444 !default;
 .selected {
   background: orange; }
 
+.img-circle.gravatar {
+  width: 32px;
+  border-radius: 80%; }
+
+.ion-profile-tab .tab-item {
+  display: none !important; }
+
 .button.button-icon {
   float: right;
   font-size: 30px;
@@ -41,8 +48,13 @@ $dark:                            #444 !default;
 .popup-title {
   color: white; }
 
+.popup-buttons button.button-icon.icon.ios-close-round {
+  width: 5%;
+  flex: none !important;
+  color: white; }
+
 .popup-buttons {
-  width: 5%; }
+  width: 90%; }
 
 .panel-body {
   background-color: white; }
@@ -112,10 +124,6 @@ img {
   max-height: 300px;
   max-width: 300px;
   position: center center fixed; }
-
-img.thumbnail {
-  width: 100px;
-  height: 100px; }
 
 .tint {
   position: relative;

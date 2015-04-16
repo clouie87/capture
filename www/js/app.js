@@ -98,6 +98,17 @@ var app = angular.module('starter', [
       }
     })
 
+  .state('tab.profile', {
+    url: '/profile',
+    views: {
+      'tab-dash': {
+        templateUrl: 'templates/profile.html'
+        //controller: 'AuthController'
+        //controller: 'ProfileController'
+      }
+    }
+  })
+
   .state('tab.account', {
     url: '/account',
     views: {

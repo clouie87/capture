@@ -2,6 +2,7 @@
 
 app.controller('NavController', function($scope, Auth, $state){
   //want to show if the user is logged in or out to decide if we should show loggout button
+  $scope.currentUser = Auth.user;
   $scope.signedIn = Auth.signedIn;
 
 
@@ -9,5 +10,10 @@ app.controller('NavController', function($scope, Auth, $state){
     Auth.logout();
     console.log("logging out");
     $state.go('login');
+  };
+
+  $scope.profile = function(){
+    console.log('profile was clicked');
+    $state.go('tab.profile');
   }
 });
