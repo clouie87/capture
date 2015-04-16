@@ -32,6 +32,21 @@ $dark:                            #444 !default;
   font-size: 30px;
   color: #ffff00; }
 
+.popup-container .popup {
+  width: 80% !important; }
+
+.popup-head {
+  background-color: #33cd5f; }
+
+.popup-title {
+  color: white; }
+
+.popup-buttons {
+  width: 5%; }
+
+.panel-body {
+  background-color: white; }
+
 .list-inset .item.item-input input {
   margin-left: 10%;
   margin-right: 10%;

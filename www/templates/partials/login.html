@@ -1,28 +1,18 @@
-<div class="popup fade" id="logPopup" title="Login">
-  <div class="list list-inset">
+<div class="popup-fade" id="logPopup" title="Login">
 
-    <!--<div class="panel panel-assertive title">-->
+  <div class="panel-body">
+    <form name="login" ng-model= "user" ng-submit="login(user)">
+      <label class="item item-input">
+        <i class="ion-ios-email" style="font-size: 30px"></i>&nbsp;&nbsp;
+        <input class="loginPlaceholders" type="text" placeholder="E-mail" ng-model="user.email">
+      </label>
 
+      <label class="item item-input">
+        <i class="ion-unlocked" style="font-size: 24px"></i>&nbsp;&nbsp;
+        <input type="password" placeholder="Password" ng-model="user.password">
+      </label>
 
-
-      <div class="panel-body">
-        <form ng-submit="login(user)">
-          <label class="item item-input">
-            <i class="ion-ios-email" style="font-size: 30px"></i>
-            <input class="loginPlaceholders" type="text" placeholder="E-mail" ng-model="data.email">
-          </label>
-
-          <label class="item item-input">
-            <i class="ion-unlocked" style="font-size: 24px"></i>
-            <br>
-            <input type="password" placeholder="Password" ng-model="data.password">
-          </label>
-
-          <input type="submit" value="Login" class="button button-balanced button-block">
-        </form>
-      </div>
-    </div>
+      <!--<input type="submit" value="Login" class="button button-energized button-block">-->
+    </form>
   </div>
-
-
 </div>

@@ -42,7 +42,7 @@ var app = angular.module('starter', [
   .state('login', {
     url:"/login",
     templateUrl: "templates/login.html",
-    controller: 'LoginController'
+    controller: 'AuthController'
   })
   .state('/create', {
     url:"/create",
@@ -109,6 +109,6 @@ var app = angular.module('starter', [
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/login');
 
 });

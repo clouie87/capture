@@ -1,22 +1,24 @@
-<form ng-submit="signup(user)">
-  <label class="item item-input">
-    <i class="ion-ios-person" style="font-size: 30px"></i>
-    <input class="loginPlaceholders" type="text" placeholder="Name" ng-model="user.name">
+<div class="popup-fade auth-forms" id="logPopup" title="Login">
 
-  </label>
+  <div class="panel-body">
+    <form ng-submit="signup(user)">
+      <label class="item item-input">
+        <i class="ion-ios-person" style="font-size: 30px"></i>&nbsp;&nbsp;
+        <input class="loginPlaceholders" type="text" placeholder="Name" ng-model="$parent.user.name">
+      </label>
 
-  <label class="item item-input">
-    <i class="ion-ios-email" style="font-size: 30px"></i>
-    <input class="loginPlaceholders" type="text" placeholder="E-mail" ng-model="user.email">
+      <label class="item item-input">
+        <i class="ion-ios-email" style="font-size: 30px"></i>&nbsp;&nbsp;
+        <input class="loginPlaceholders" type="text" placeholder="E-mail" ng-model="$parent.user.email">
+      </label>
 
-  </label>
+      <label class="item item-input">
+        <i class="ion-unlocked" style="font-size: 24px"></i>&nbsp;&nbsp;
+        <input type="password" placeholder="Password" ng-model="$parent.user.password">
+      </label>
 
-  <label class="item item-input">
-    <i class="ion-unlocked" style="font-size: 24px"></i>
-    <br>
-    <input type="password" placeholder="Password" ng-model="user.password">
-  </label>
-
-  <input type="submit" value="Signup" class="button button-positive">
-</form>
+      <input type="submit" value="Signup" class="button button-royal button-block">
+    </form>
+  </div>
+</div>
 

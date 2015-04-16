@@ -6,8 +6,6 @@ app.controller('CreateController', function($scope, FURL, $firebase, $stateParam
   var fbChallenges = $firebase(ref.child('challenges')).$asArray();
   var challengeId = $stateParams.challengeId;
 
-  console.log(challengeId);
-
   if(challengeId) {
     $scope.selectedChallenge = getChallenge(challengeId);
     console.log($scope.selectedChallenge);
