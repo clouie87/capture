@@ -1,28 +1,43 @@
 <ion-view view-title="Dashboard">
   <ion-content class="padding">
-    <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
-      <div class="item item-body">
-        <div>
-          There is a fire in <b>sector 3</b>
+    <!--SEARCH FUNCTION-->
+
+      <div class = "list card">
+        <div class="form-group">
+          <div class ="input-group">
+
+              <div class="row">
+                <div class ="input-group-addon">
+                  <div class="col-1">
+                    <span class="ion-ios-search" style="font-size: 24px" aria-hidden="true"></span><br>
+                  </div>
+                </div>
+              &nbsp;&nbsp;&nbsp;
+
+              <div class="col-10">
+                <input type="text" ng-model="searchTask" class="form-control" placeholder="Search">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Health</div>
-      <div class="item item-body">
-        <div>
-          You ate an apple today!
-        </div>
+
+
+        <!--CHALLENGES-->
+    <ion-item class="list card" ng-repeat="challenge in challenges | filter: searchTask" href= "#/tab/dash/{{challenge.$id}}">
+      <div class="item item-image" >
+        <figure class="tint">
+
+          <h2 class="textOnImage" >{{challenge.description}}</h2></br>
+          <!--<h2 class="textOnImage2"> {{challenge.days}} {{challenge.hours}} {{challenge.minutes}} {{challenge.seconds}}</h2>-->
+          <!--<h2 class="textOnImage2" >Days Hours Minutes Seconds</h2>-->
+          <img ng-src="{{challenge.imageURI }}">
+
+        </figure>
       </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Upcoming</div>
-      <div class="item item-body">
-        <div>
-          You have <b>29</b> meetings on your calendar tomorrow.
-        </div>
-      </div>
-    </div>
+    </ion-item>
+
+  </div>
+
   </ion-content>
 </ion-view>

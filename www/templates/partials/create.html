@@ -1,0 +1,17 @@
+<ion-view view-title="Create">
+  <ion-content class="padding">
+    <form name="challengeForm" ng-submit="createChallenge(challenge)" enctype="multipart/form-data" novalidate>
+      <p>Challenge: <input type="text" ng-model="challenge.name" name="name"></p>
+      <!--<p> Photo: <span type= "file" ng-model="challenge.photo"></span></p>-->
+      <p>Photo: <input type="hidden" ng-model="challenge.photo" value="{{challenge.imageURI}}"> </p>
+      <img ng-src="{{challenge.imageURI}}">
+
+
+      <p>Description: <input type="text" ng-model="challenge.description" ></p>
+
+      <input type="submit" class="col button button button-calm" value="Save" />
+      <!--</p>-->
+
+    </form>
+  </ion-content>
+</ion-view>

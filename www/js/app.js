@@ -5,7 +5,17 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+var app = angular.module('starter', [
+  'ionic',
+  'starter.controllers',
+  'ngRoute',
+  'ngAnimate',
+  'ngResource',
+  'starter.services',
+  'firebase'
+])
+
+.constant('FURL', 'https://capture-photo.firebaseio.com/')
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -29,6 +39,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Each state's controller can be found in controllers.js
   $stateProvider
 
+  .state('login', {
+    url:"/login",
+    templateUrl: "templates/login.html",
+    controller: 'LoginController'
+  })
+  .state('/create', {
+    url:"/create",
+    templateUrl: "templates/partials/create.html",
+    controller: 'CreateController'
+  })
+
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: "/tab",
@@ -43,17 +64,27 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     views: {
       'tab-dash': {
         templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+        controller: 'CreateController'
       }
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+  .state('tab.challenges-photos', {
+    url: '/dash/:challengeId',
+    views: {
+      'tab-dash': {
+        templateUrl: 'templates/challenges-photos.html',
+        controller: 'CreateController'
+      }
+    }
+  })
+
+  .state('tab.photo', {
+      url: '/photo',
       views: {
         'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+          templateUrl: 'templates/tab-photo.html',
+          controller: 'PhotoController'
         }
       }
     })
