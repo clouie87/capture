@@ -12,7 +12,7 @@
         <input type="text" placeholder="Description" ng-model="photo.description">
       </label>
 
-      <input type="hidden" ng-model="photo.imageURI" value="{{data.imageURI}}"/>
+      <input type="hidden" ng-model="photo.imageURI" value="data:image/jpeg;base64/{{data.imageURI}}"/>
       {{data.imageURI}}
 
 

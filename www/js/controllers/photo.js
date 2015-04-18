@@ -37,15 +37,16 @@ app.controller('PhotoController', function($scope, $rootScope, $state, $firebase
         };
 
     $state.go('tab.photo-camera');
+
     navigator.camera.getPicture(function(data) {
-      alert('image is: ' + data);
+      //alert('image is: ' + data);
       $rootScope.data.imageURI = data;
 
+      var image = "data:image/jpeg;base64, " + data;
+
+      //alert('image is: ' + image);
+
       $rootScope.$apply();
-      Photo.submitPhoto = function(photo) {
-        alert('saving photo');
-        console.log('saving photo', photo);
-      };
 
     });
 
