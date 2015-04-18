@@ -1,0 +1,23 @@
+<div class="popup-fade" id="subPopup" title="Submit">
+
+  <div class="panel-body">
+    <form name="submitForm" ng-model="photo" ng-submit="submit(photo)">
+      <label class="item item-input">
+        <i class="ion-ios-email" style="font-size: 30px"></i>&nbsp;&nbsp;
+        <input class="loginPlaceholders" type="text" placeholder="Name" ng-model="photo.name">
+      </label>
+
+      <label class="item item-input">
+        <i class="ion-unlocked" style="font-size: 24px"></i>&nbsp;&nbsp;
+        <input type="text" placeholder="Description" ng-model="photo.description">
+      </label>
+
+      <input type="hidden" ng-model="photo.imageURI" value="{{data.imageURI}}"/>
+      {{data.imageURI}}
+
+
+
+      <!--<input type="submit" value="Login" class="button button-energized button-block">-->
+    </form>
+  </div>
+</div>

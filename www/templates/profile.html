@@ -1,10 +1,55 @@
 <ion-view view-title="{{currentUser.profile.name}}">
   <ion-content>
-    WE are in profile
+    <div class="row">
+
+      <div class="col-col-33 col-buffer">
+        <div>
+          <img ng-src="{{currentUser.profile.gravatar}}">
+          <p class="center-text">{{currentUser.profile.name}}</p>
+        </div>
+      </div>
+
+      <!--<div class="col-10">-->
+        <!--&nbsp;-->
+      <!--</div>-->
+
+      <div class="col col-60 col-buffer">
+        <div>
+          <button class="button button-block button-balanced">Edit Profile</button>
+          <p>Stats(?)</p>
+        </div>
+      </div>
+
+
+
+    </div>
+
     <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
+      <button ng-hide = "!signedIn()" id="logout" class="button button-energized button-block" ng-click="logout()">
+      Logout
+      </button>
+
+      <div side="right">
+        <button class="button button-icon icon ion-camera" ng-click="upload()">upload</button>
+      </div>
+      <!--<ion-content>-->
+        <!--<div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">-->
+          <!--<div class="col col-25" ng-if="$index < images.length">-->
+            <!--<img ng-src="data:image/jpeg;base64,{{images[$index].image}}" width="100%" />-->
+          <!--</div>-->
+          <!--<div class="col col-25" ng-if="$index + 1 < images.length">-->
+            <!--<img ng-src="data:image/jpeg;base64,{{images[$index + 1].image}}" width="100%" />-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</ion-content>-->
+
+      <ion-item class="list card" ng-repeat="photo in photos" href= "">
+        <div class="item item-image" >
+            <img ng-src="{{photo.image}}">
+            {{photo.name}}
+        </div>
+      </ion-item>
+
     </ion-list>
   </ion-content>
 </ion-view>

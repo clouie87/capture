@@ -7,6 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 var app = angular.module('starter', [
   'ionic',
+  'ngCordova',
   'starter.controllers',
   'ngRoute',
   'ngAnimate',
@@ -88,6 +89,15 @@ var app = angular.module('starter', [
         }
       }
     })
+    .state('tab.photo-camera', {
+      url: '/photo/camera',
+      views: {
+        'tab-photo': {
+          templateUrl: 'templates/photo-camera.html',
+          controller: 'PhotoController'
+        }
+      }
+    })
     .state('tab.chat-detail', {
       url: '/chats/:chatId',
       views: {
@@ -102,9 +112,9 @@ var app = angular.module('starter', [
     url: '/profile',
     views: {
       'tab-dash': {
-        templateUrl: 'templates/profile.html'
+        templateUrl: 'templates/profile.html',
         //controller: 'AuthController'
-        //controller: 'ProfileController'
+        controller: 'ProfileController'
       }
     }
   })

@@ -1,6 +1,12 @@
 'use strict';
 
 app.controller('AuthController', function($scope, $state, Auth, $ionicPopup) {
+
+  if(Auth.signedIn()){
+    console.log("user is already logged in");
+    $state.go('tab.dash');
+  }
+
   $scope.user = {};
 
   $scope.showLogin = function() {
