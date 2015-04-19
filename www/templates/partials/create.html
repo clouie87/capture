@@ -1,17 +1,23 @@
-<ion-view view-title="Create">
-  <ion-content class="padding">
-    <form name="challengeForm" ng-submit="createChallenge(challenge)" enctype="multipart/form-data" novalidate>
-      <p>Challenge: <input type="text" ng-model="challenge.name" name="name"></p>
-      <!--<p> Photo: <span type= "file" ng-model="challenge.photo"></span></p>-->
-      <p>Photo: <input type="hidden" ng-model="challenge.photo" value="{{challenge.imageURI}}"> </p>
-      <img ng-src="{{challenge.imageURI}}">
+<div class="popup-fade" id="crePopup" title="Create">
+
+  <div class="panel-body">
+    <form name="createForm" ng-model="photo" ng-submit="create(photo)">
+      <label class="item item-input">
+        <!--<i class="ion-ios-email" style="font-size: 30px"></i>&nbsp;&nbsp;-->
+        <input class="loginPlaceholders" type="text" placeholder="Name" ng-model="photo.name">
+      </label>
+
+      <label class="item item-input">
+        <!--<i class="ion-unlocked" style="font-size: 24px"></i>&nbsp;&nbsp;-->
+        <input type="text" placeholder="Description" ng-model="photo.description">
+      </label>
+
+      <input type="hidden" ng-model="photo.imageURI" value="data:image/jpeg;base64/{{data.imageURI}}"/>
+      <!--{{//data.imageURI}}-->
 
 
-      <p>Description: <input type="text" ng-model="challenge.description" ></p>
 
-      <input type="submit" class="col button button button-calm" value="Save" />
-      <!--</p>-->
-
+      <!--<input type="submit" value="Login" class="button button-energized button-block">-->
     </form>
-  </ion-content>
-</ion-view>
+  </div>
+</div>

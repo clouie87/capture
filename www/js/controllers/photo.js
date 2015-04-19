@@ -14,19 +14,18 @@ app.controller('PhotoController', function($scope, $rootScope, $state, $firebase
 
   $rootScope.takePhoto = function(data){
     console.log('going to camera');
-    //$state.go('tab.photo-camera');
-    //alert('taking picture');
+
+    $rootScope.photo = {};
+
+    //var Camera= navigator.camera;
+
     console.log(data);
 
-    //var cameraOptions = {
-    //  targetWidth: 300,
-    //  //targetHeight: 300,
-    //  allowEdit : true,
-    //  destinationType: navigator.camera.DestinationType.FILE_URI,
-      alert('upload pic is working');
-      var options = {
+      //alert('upload pic is working');
+
+    var options = {
           quality: 75,
-          destinationType: navigator.camera.DestinationType.FILE_URI,
+          destinationType: navigator.camera.DestinationType.DATA_URL,
           sourceType: navigator.camera.PictureSourceType.CAMERA,
           allowEdit: true,
           encodingType: navigator.camera.EncodingType.JPEG,
@@ -34,21 +33,25 @@ app.controller('PhotoController', function($scope, $rootScope, $state, $firebase
           targetWidth: 500,
           targetHeight: 500,
           saveToPhotoAlbum: false
-        };
+    };
+
 
     $state.go('tab.photo-camera');
 
-    navigator.camera.getPicture(function(data) {
-      //alert('image is: ' + data);
-      $rootScope.data.imageURI = data;
+    navigator.camera.getPicture(function(photo) {
+      //alert('image is: ' + options.quality);
+      $rootScope.data.imageURI = photo;
 
-      var image = "data:image/jpeg;base64, " + data;
 
-      //alert('image is: ' + image);
+      var image = "data:image/jpeg;base64," + photo;
+
+      alert('image is: ' + image);
 
       $rootScope.$apply();
+    }, function(err) {
 
-    });
+      alert("Sorry!  Can't take your photo!");
+    }, options);
 
   };
 
@@ -59,6 +62,7 @@ app.controller('PhotoController', function($scope, $rootScope, $state, $firebase
     var mySubmit = $ionicPopup.show({
       templateUrl: 'templates/partials/submit.html',
       title: 'Submit Photo',
+      cssClass: 'photoUploadPopup',
       scope: $scope,
       buttons:[{
         text: 'x',
@@ -72,22 +76,39 @@ app.controller('PhotoController', function($scope, $rootScope, $state, $firebase
             $scope.photo.imageURI = $rootScope.data.imageURI;
             console.log('photo object: ', photo.name, photo.description, photo.imageURI);
             Photo.submitPhoto(photo);
-              //.then(function(){
-              //console.log('saving photo', photo);
-              ////alert('saving photo ' + photo.imageURI);
-            //});
+
           }
         }]
     });
   };
 
-  //Photo.submitPhoto = function(photo) {
-  //  console.log('saving photo', photo);
-  //};
 
+  ///////////////////////////////////Create Form///////////////////////////////////
+  $scope.createForm = function(){
+    $scope.photo = {};
+    console.log('submit button was clicked');
+    var mySubmit = $ionicPopup.show({
+      templateUrl: 'templates/partials/submit.html',
+      title: 'Create Photo',
+      cssClass: 'photoUploadPopup',
+      scope: $scope,
+      buttons:[{
+        text: 'x',
+        type:'button button-icon icon ios-close-round'
+      },
+        {
+          text: 'Submit',
+          type:'button-balanced',
+          onTap: function(photo) {
+            photo = $scope.photo;
+            $scope.photo.imageURI = $rootScope.data.imageURI;
+            console.log('photo object: ', photo.name, photo.description, photo.imageURI);
+            Photo.createPhoto(photo);
 
-
-
+          }
+        }]
+    });
+  };
   $scope.name='';
   $scope.description='';
 

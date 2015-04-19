@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('Photo', function(FURL, $firebase, Auth, $cordovaCamera) {
+app.factory('Photo', function(FURL, $firebase, Auth) {
   var ref = new Firebase(FURL);
   var photos = $firebase(ref.child('photos')).$asArray();
   var user = Auth.user;
@@ -35,11 +35,20 @@ app.factory('Photo', function(FURL, $firebase, Auth, $cordovaCamera) {
 
     submitPhoto: function(photo){
       console.log(photo.name, 'is photo name');
-      alert(photo.name, 'is photo name');
+      //alert(photo.name, 'is photo name');
       photo.datetime = Firebase.ServerValue.TIMESTAMP;
 
-        var imageSave= photo.imageURI;
-        console.log('the image is', imageSave);
+      var data = photo.imageURI;
+      //alert('the data in submit photo is:  ', data);
+
+        //var base64Data = photo.imageURI.replace(/^data:image\/jpeg;base64,/, "");
+        //alert('the base 64'+ base64Data);
+        //require("fs").writeFile("test.jpg", base64Data, 'base64', function(err) {
+        //  console.log(err);
+        //  alert(err_)
+        //});
+
+      var imageSave = "data:image/jpeg;base64," + data;
 
         var obj ={
           //photoId: newPhoto.key(),
@@ -55,15 +64,7 @@ app.factory('Photo', function(FURL, $firebase, Auth, $cordovaCamera) {
 
         alert("Image has been uploaded");
       });
-    //}, function (error) {
-    //console.error(error);
-  //});
-//}
 
-
-        //var PhotoRef = $firebase(ref.child('photo'));
-        //return newPhoto;
-      //});
     }
   };
   return Photo;

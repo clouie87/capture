@@ -15,6 +15,7 @@ app.controller('AuthController', function($scope, $state, Auth, $ionicPopup) {
     var myLogin = $ionicPopup.show({
       templateUrl: 'templates/partials/login.html',
       title: 'Login',
+      cssClass: 'loginPopup',
       scope: $scope,
       buttons:[{
         text: 'x',
@@ -49,6 +50,7 @@ app.controller('AuthController', function($scope, $state, Auth, $ionicPopup) {
     var mySignup = $ionicPopup.show({
       templateUrl: 'templates/partials/signup.html',
       scope: $scope,
+      cssClass: 'loginPopup',
       title: 'Signup',
       buttons:[{
         type:'button button-icon icon ios-close-round',

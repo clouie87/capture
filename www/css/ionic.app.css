@@ -51,6 +51,9 @@ $dark:                            #444 !default;
 .popup-head {
   background-color: #33cd5f; }
 
+.photoUploadPopup .popup-head {
+  background-color: #886aea; }
+
 .popup-title {
   color: white; }
 

@@ -3,17 +3,17 @@
   <div class="panel-body">
     <form name="submitForm" ng-model="photo" ng-submit="submit(photo)">
       <label class="item item-input">
-        <i class="ion-ios-email" style="font-size: 30px"></i>&nbsp;&nbsp;
+        <!--<i class="ion-ios-email" style="font-size: 30px"></i>&nbsp;&nbsp;-->
         <input class="loginPlaceholders" type="text" placeholder="Name" ng-model="photo.name">
       </label>
 
       <label class="item item-input">
-        <i class="ion-unlocked" style="font-size: 24px"></i>&nbsp;&nbsp;
+        <!--<i class="ion-unlocked" style="font-size: 24px"></i>&nbsp;&nbsp;-->
         <input type="text" placeholder="Description" ng-model="photo.description">
       </label>
 
       <input type="hidden" ng-model="photo.imageURI" value="data:image/jpeg;base64/{{data.imageURI}}"/>
-      {{data.imageURI}}
+      <!--{{//data.imageURI}}-->
 
 
 
