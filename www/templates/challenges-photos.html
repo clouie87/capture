@@ -1,10 +1,39 @@
-<ion-view view-title="{{challenge.name}}">
+<ion-view view-title="{{selectedChallenge.name}}">
   <ion-content class="padding">
-    Made it to the challenge photos
-    <!--<img ng-src="{{chat.face}}" style="width: 64px; height: 64px">-->
-    <p>
-      {{selectedChallenge.description}}
-      <img ng-src="{{selectedChallenge.imageURI}}">
-    </p>
+    <!--Made it to the challenge photos-->
+      <div class="row">
+
+        <div class="col-col-33 col-buffer">
+          <div>
+            <img style="width: 100px; border-radius: 80%" ng-src="{{selectedChallenge.image}}">
+            <!--<p class="center-text">{{currentUser.profile.name}}</p>-->
+          </div>
+        </div>
+
+        <div class="col col-60 col-buffer">
+          <div>
+              <button class="button button-block button-icon icon ion-camera" style="margin-top: 0px !important; margin-bottom: 0px !important;" ng-click=""> upload</button>
+           <br>
+            <!--<button class="button button-block button-balanced" ng-click="">Upload</button>-->
+            <a class="button button-icon ion-ios-plus-outline" style="margin-top: 0px !important; margin-bottom: 0px !important;" icon-off="ion-ios-plus-outline" icon-on="ion-ios-checkmark" data-state="off" ng-click="activate(selectedChallenge)" icon-switcher>
+            </a>
+            <div class="row" style="float: left; width: 55px; height: 20px" ng-repeat="accept in accepteds">
+              {{accept.name}},
+              <!--<!--<img ng-src="{{accept.gravatar}}" class="img-circle comment gravatar">-->
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    <button style="min-height: 5px !important; height: 5px !important; margin-top: 0px !important; margin-bottom: 0px !important;" class="button button-block button-energized">
+    </button><br>
+
+    <div>
+      <div style="height:100px; width:100px; float: left" class="item item-image" ng-repeat="photo in photos | filter: {creator: 'simplelogin:13'} | orderBy: 'datetime': false | limitTo: 1" href= "">
+        <img ng-src="{{photo.image}}">
+        <!--{{photo.name}}-->
+      </div>
+    </div>
   </ion-content>
 </ion-view>

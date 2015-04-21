@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('PhotoController', function($scope, $rootScope, $state, $firebase, FURL, $ionicPopup, $cordovaCamera, Photo){
+app.controller('PhotoController', function($scope, $rootScope, $state, Auth, FURL, $ionicPopup, $cordovaCamera, toaster, Photo, Challenge, Accept){
   console.log('got to the PhotoContoller linked');
   $scope.photos = Photo.all;
   console.log($scope.photos);
@@ -45,7 +45,7 @@ app.controller('PhotoController', function($scope, $rootScope, $state, $firebase
 
       var image = "data:image/jpeg;base64," + photo;
 
-      alert('image is: ' + image);
+      //alert('image is: ' + image);
 
       $rootScope.$apply();
     }, function(err) {
@@ -62,7 +62,7 @@ app.controller('PhotoController', function($scope, $rootScope, $state, $firebase
     var mySubmit = $ionicPopup.show({
       templateUrl: 'templates/partials/submit.html',
       title: 'Submit Photo',
-      cssClass: 'photoUploadPopup',
+      //cssClass: 'photoUploadPopup',
       scope: $scope,
       buttons:[{
         text: 'x',
@@ -75,7 +75,9 @@ app.controller('PhotoController', function($scope, $rootScope, $state, $firebase
             photo = $scope.photo;
             $scope.photo.imageURI = $rootScope.data.imageURI;
             console.log('photo object: ', photo.name, photo.description, photo.imageURI);
-            Photo.submitPhoto(photo);
+            Photo.submitPhoto(photo).then(function(){
+              toaster.pop('Success', "photo is saved");
+            });
 
           }
         }]
@@ -90,20 +92,20 @@ app.controller('PhotoController', function($scope, $rootScope, $state, $firebase
     var mySubmit = $ionicPopup.show({
       templateUrl: 'templates/partials/submit.html',
       title: 'Create Photo',
-      cssClass: 'photoUploadPopup',
+      //cssClass: 'photoUploadPopup',
       scope: $scope,
       buttons:[{
         text: 'x',
         type:'button button-icon icon ios-close-round'
       },
         {
-          text: 'Submit',
-          type:'button-balanced',
+          text: 'Create',
+          type:'button-energized',
           onTap: function(photo) {
             photo = $scope.photo;
             $scope.photo.imageURI = $rootScope.data.imageURI;
             console.log('photo object: ', photo.name, photo.description, photo.imageURI);
-            Photo.createPhoto(photo);
+            Challenge.createChallenge(photo);
 
           }
         }]
@@ -112,7 +114,7 @@ app.controller('PhotoController', function($scope, $rootScope, $state, $firebase
   $scope.name='';
   $scope.description='';
 
-  $scope.createPhoto = function(challenge) {
-    console.log(challenge);
-  }
+  //$scope.createPhoto = function(challenge) {
+  //  console.log(challenge);
+  //}
 });

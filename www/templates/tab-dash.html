@@ -15,25 +15,32 @@
               &nbsp;&nbsp;&nbsp;
 
               <div class="col-10">
-                <input type="text" ng-model="searchTask" class="form-control" placeholder="Search">
+                <input type="text" ng-model="searchChallenges" class="form-control" placeholder="Search">
               </div>
             </div>
           </div>
         </div>
       </div>
 
-
         <!--CHALLENGES-->
-    <ion-item class="list card" ng-repeat="challenge in challenges | filter: searchTask" href= "#/tab/dash/{{challenge.$id}}">
+    <ion-item class="list card" ng-repeat="challenge in challenges | filter: searchChallenges" href= "#/app/tab/dash/{{challenge.$id}}">
       <div class="item item-image" >
         <figure class="tint">
-
           <h2 class="textOnImage" >{{challenge.description}}</h2></br>
           <!--<h2 class="textOnImage2"> {{challenge.days}} {{challenge.hours}} {{challenge.minutes}} {{challenge.seconds}}</h2>-->
           <!--<h2 class="textOnImage2" >Days Hours Minutes Seconds</h2>-->
-          <img style="width: 300px; height: 300px" ng-src="{{challenge.imageURI}}">
-
+          <img style="width: 300px; height: 280px" ng-src="{{challenge.image}}">
         </figure>
+        <div>
+          <!--<a class="button button-icon ion-ios-plus-outline" icon-off="ion-ios-plus-outline" icon-on="ion-ios-checkmark" data-state="off" ng-click="activate(challenge)" icon-switcher>-->
+          <!--</a>-->
+          <div class="row" ng-repeat="accept in accepteds">
+            <div class="col-md-1">
+              <span>{{accept.name}}</span>
+
+            </div>
+          </div>
+        </div>
       </div>
     </ion-item>
 

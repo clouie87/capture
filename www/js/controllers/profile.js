@@ -1,45 +1,34 @@
 'use strict';
 
-app.controller('ProfileController', function(FURL, $scope, Auth, $state, $firebase, $cordovaCamera, Photo){
+app.controller('ProfileController', function(FURL, $scope, Auth, $state, $firebase, $cordovaCamera, $ionicPopup, Photo){
   //want to show if the user is logged in or out to decide if we should show loggout button
   $scope.currentUser = Auth.user;
   $scope.signedIn = Auth.signedIn;
   $scope.photos = Photo.all;
 
-  console.log(Auth.user);
-  //var ref = new Firebase(FURL);
-  //var images = $firebase(ref.child('images')).$asArray();
+  $scope.editProfile = function(){
+    console.log('in edit profile');
 
-  //
-  //$scope.images = [];
-  //
-  //
-  //$scope.upload = function () {
-  //  console.log('upload pic clicked');
-  //  var options = {
-  //    quality: 75,
-  //    destinationType: navigator.camera.DestinationType.FILE_URI,
-  //    sourceType: navigator.camera.PictureSourceType.CAMERA,
-  //    allowEdit: true,
-  //    encodingType: navigator.camera.EncodingType.JPEG,
-  //    popoverOptions: CameraPopoverOptions,
-  //    targetWidth: 500,
-  //    targetHeight: 500,
-  //    saveToPhotoAlbum: false
-  //  };
-  //  $cordovaCamera.getPicture(options).then(function (imageData) {
-  //    alert(imageData);
-  //
-  //    image.datetime = Firebase.ServerValue.TIMESTAMP;
-  //    return images.$add({image: imageData}).then(function(){
-  //
-  //      alert("Image has been uploaded");
-  //    });
-  //  }, function (error) {
-  //    console.error(error);
-  //  });
-  //}
+      console.log('submit button was clicked');
+      var mySubmit = $ionicPopup.show({
+        templateUrl: 'templates/partials/submit.html',
+        title: 'Edit Profile',
+        //cssClass: 'photoUploadPopup',
+        scope: $scope,
+        buttons:[{
+          text: 'x',
+          type:'button button-icon icon ios-close-round'
+        },
+          {
+            text: 'Edit',
+            type:'button-calm',
+            onTap: function() {
+              console.log('edit saved');
+            }
+          }]
+      })
 
+  };
 
   $scope.logout = function() {
     Auth.logout();

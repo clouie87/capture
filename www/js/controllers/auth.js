@@ -28,7 +28,7 @@ app.controller('AuthController', function($scope, $state, Auth, $ionicPopup) {
             user= $scope.user;
             Auth.login(user).then(function () {
               console.log("Logged in succesfully!");
-              $state.go('tab.dash');
+              $state.go('app.tab.dash');
 
             }, function (err) {
               console.log('Error...');

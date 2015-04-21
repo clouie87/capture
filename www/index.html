@@ -10,9 +10,17 @@
 
   <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above-->
   <link href="css/ionic.app.css" rel="stylesheet">
+
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.js"></script>
+
+  <script src=""></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/0.4.9/toaster.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.2.1/css/material.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.2.1/css/ripples.css" />
+  <link rel="stylesheet" href="lib/ionic-ion-drawer/ionic.contrib.drawer.css" />
 
 
   <!-- ionic/angularjs js -->
@@ -22,9 +30,14 @@
   <script src="lib/ngstorage/ngStorage.min.js"></script>
 
 
+
+
+
   <!--<script src="cordova.js"></script>-->
   <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
   <script src="cordova.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular-animate.js"></script>
@@ -34,8 +47,11 @@
   <script src="https://cdn.firebase.com/js/client/2.1.0/firebase.js"></script>
   <script src="https://cdn.firebase.com/libs/angularfire/0.9.1/angularfire.min.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/0.4.9/toaster.js"></script>
 
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.2.1/js/material.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.2.1/js/ripples.js"></script>
 
 
 
@@ -59,28 +75,18 @@
 
   <script src="js/services/auth.js"></script>
   <script src="js/services/photo.js"></script>
+  <script src="js/services/challenge.js"></script>
+  <script src="js/services/accept.js"></script>
+  <script src="js/services/iconSwitcher.js"></script>
 
 </head>
 <body ng-app="starter">
+<toaster-container toaster-options="{'time=out': 3000, 'close-button': true}"></toaster-container>
+
 <!--
   The nav bar that will be updated as we navigate between views.
 -->
-<ion-nav-bar class="bar-positive" ng-controller="NavController">
-  <ion-nav-back-button></ion-nav-back-button>
-
-  <ion-nav-buttons side="right">
-    <button style="margin-top: -10%; padding:0; height:43px" class= "row button-clear" ng-click="profile()">
-        <img ng-show="signedIn()" ng-src = "{{currentUser.profile.gravatar}}" class="img-circle gravatar">
-        <!--&nbsp;-->
-        <!--<p style="margin-top: 7px">{{currentUser.profile.name}}</p>-->
-    </button>
-    <!--<button ng-hide = "!signedIn()" id="logout" class="button button-clear button-light" ng-click="logout()">-->
-      <!--Logout-->
-    <!--</button>-->
-    <!--</button>-->
-  </ion-nav-buttons>
-</ion-nav-bar>
-
+<!--<ion-nav-bar class="bar-positive" ng-controller="NavController">-->
 
 <!--
   The views will be rendered in the <ion-nav-view> directive below
@@ -89,6 +95,7 @@
 -->
 <ion-nav-view>
 </ion-nav-view>
+
 <script>
   $(document).ready(function($localStorage){
     console.log('can do some simple changes for front end');

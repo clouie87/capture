@@ -19,8 +19,8 @@ $dark:                            #444 !default;
   font-family: awesome;
   src: url('font-awesome-4.3.0/fonts/fontawesome-webfont.eot') format('embedded-opentype'); }
 
-.selected {
-  background: orange; }
+#toast-container {
+  margin-top: 20%; }
 
 .img-circle.gravatar {
   width: 32px;
@@ -36,9 +36,8 @@ $dark:                            #444 !default;
   margin-left: 2.5%; }
 
 .button.button-icon {
-  float: right;
-  font-size: 30px;
-  color: green; }
+  float: left;
+  font-size: 30px; }
 
 .star.button.button-icon {
   float: right;
@@ -99,6 +98,16 @@ label.item.item-input {
 
 .item-content {
   margin-left: 3%; }
+
+#profile.card {
+  width: 100px;
+  float: left;
+  padding: 0;
+  margin: 0;
+  horizontal-align: middle; }
+
+#profile .item-content {
+  padding: 0 !important; }
 
 h2.textOnImage.ng-binding {
   font-family: awesome;

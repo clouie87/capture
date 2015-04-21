@@ -1,33 +1,45 @@
 'use strict';
 
-app.controller('CreateController', function($scope, FURL, $firebase, $stateParams){
+app.controller('CreateController', function($scope, FURL, $firebase, $stateParams, Challenge, Auth, Accept, Photo){
 
-  var ref = new Firebase(FURL);
-  var fbChallenges = $firebase(ref.child('challenges')).$asArray();
-  var challengeId = $stateParams.challengeId;
+  $scope.searchChallenges='';
+  $scope.challenges = Challenge.all;
+  $scope.signedIn = Auth.signedIn;
+  $scope.photos = Photo.all;
+  console.log($scope.photos);
 
-  if(challengeId) {
-    $scope.selectedChallenge = getChallenge(challengeId);
-    console.log($scope.selectedChallenge);
+  //Photo.getPhoto;
+
+  console.log('the photos are', $scope.photos);
+
+  if($stateParams.challengeId) {
+    var challengeId = $stateParams.challengeId;
+    var challenge = Challenge.getChallenge(challengeId).$asObject();
+    setSelectedChallenge(challenge); //we call this below and pass in the challenge
   }
 
-  function getChallenge(challengeId){
-    console.log(challengeId);
-    return $firebase(ref.child('challenges').child(challengeId)).$asObject();
+  function setSelectedChallenge(challenge){
+    $scope.selectedChallenge = challenge;
+
+    console.log('selected Challenge is 2 ', challenge);
+    $scope.accepteds = Accept.accepteds(challenge.$id);
   }
 
-  $scope.challenges = fbChallenges;
-
-  $scope.challenge = {};
-  $scope.challenge.imageURI = "http://dreamatico.com/data_images/mountain/mountain-1.jpg";
-
-
-  $scope.createChallenge = function(challenge) {
-    console.log(challenge);
-    fbChallenges.$add(challenge);
-
-    //$location('/tab/dash');
-
+  $scope.activate = function() {
+    //console.log('the id is', challenge.$id);
+    console.log('the id is2 ', $scope.selectedChallenge);
+    console.log('the button was clicked');
+    var accept = {
+      status: 'on',
+      user: Auth.user.profile.$id,
+      name: Auth.user.profile.name,
+      challengeId: challenge.$id
+    };
+      console.log(accept);
+      Accept.addActivate($scope.selectedChallenge.$id, accept).then(function(){
+        console.log('saved');
+      });
   }
+
 });
 

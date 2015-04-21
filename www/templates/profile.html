@@ -1,10 +1,14 @@
 <ion-view view-title="{{currentUser.profile.name}}">
+    <ion-nav-buttons side="right">
+      <button menu-toggle="right" class="button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+
   <ion-content>
     <div class="row">
 
       <div class="col-col-33 col-buffer">
         <div>
-          <img ng-src="{{currentUser.profile.gravatar}}">
+          <img style="width: 100px; border-radius: 80%" ng-src="{{currentUser.profile.gravatar}}">
           <p class="center-text">{{currentUser.profile.name}}</p>
         </div>
       </div>
@@ -15,7 +19,7 @@
 
       <div class="col col-60 col-buffer">
         <div>
-          <button class="button button-block button-balanced">Edit Profile</button>
+          <button class="button button-block button-balanced" ng-click="editProfile()">Edit Profile</button>
           <p>Stats(?)</p>
         </div>
       </div>
@@ -34,10 +38,10 @@
       <!--</div>-->
 
 
-      <ion-item class="list card" ng-repeat="photo in photos" href= "">
+      <ion-item id= "profile" class="card" ng-repeat="photo in photos" href= "">
         <div class="item item-image" >
             <img ng-src="{{photo.image}}">
-            {{photo.name}}
+            <!--{{photo.name}}-->
         </div>
       </ion-item>
 

@@ -7,13 +7,16 @@
 // 'starter.controllers' is found in controllers.js
 var app = angular.module('starter', [
   'ionic',
+  //'contrib.drawer',
   'ngCordova',
   'starter.controllers',
   'ngRoute',
   'ngAnimate',
   'ngResource',
   'starter.services',
-  'firebase'
+  'firebase',
+  'toaster'
+
 ])
 
 .constant('FURL', 'https://capture-photo.firebaseio.com/')
@@ -45,14 +48,23 @@ var app = angular.module('starter', [
     templateUrl: "templates/login.html",
     controller: 'AuthController'
   })
-  .state('/create', {
-    url:"/create",
-    templateUrl: "templates/partials/create.html",
-    controller: 'CreateController'
+
+  .state('app', {
+    url: "/app",
+    abstract: true,
+    templateUrl: "templates/menu.html",
+    controller: 'NavController'
   })
 
-  // setup an abstract state for the tabs directive
-    .state('tab', {
+    .state('app.profile', {
+      url: '/profile',
+      templateUrl: 'templates/profile.html',
+          //controller: 'AuthController'
+      controller: 'ProfileController'
+    })
+
+    // setup an abstract state for the tabs directive
+    .state('app.tab', {
     url: "/tab",
     abstract: true,
     templateUrl: "templates/tabs.html"
@@ -60,7 +72,7 @@ var app = angular.module('starter', [
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
+  .state('app.tab.dash', {
     url: '/dash',
     views: {
       'tab-dash': {
@@ -70,7 +82,7 @@ var app = angular.module('starter', [
     }
   })
 
-  .state('tab.challenges-photos', {
+  .state('app.tab.challenges-photos', {
     url: '/dash/:challengeId',
     views: {
       'tab-dash': {
@@ -80,7 +92,7 @@ var app = angular.module('starter', [
     }
   })
 
-  .state('tab.photo', {
+  .state('app.tab.photo', {
       url: '/photo',
       views: {
         'tab-chats': {
@@ -89,7 +101,7 @@ var app = angular.module('starter', [
         }
       }
     })
-    .state('tab.photo-camera', {
+    .state('app.tab.photo-camera', {
       url: '/photo/camera',
       views: {
         'tab-photo': {
@@ -98,7 +110,7 @@ var app = angular.module('starter', [
         }
       }
     })
-    .state('tab.chat-detail', {
+    .state('app.tab.chat-detail', {
       url: '/chats/:chatId',
       views: {
         'tab-chats': {
@@ -108,18 +120,18 @@ var app = angular.module('starter', [
       }
     })
 
-  .state('tab.profile', {
-    url: '/profile',
-    views: {
-      'tab-dash': {
-        templateUrl: 'templates/profile.html',
-        //controller: 'AuthController'
-        controller: 'ProfileController'
-      }
-    }
-  })
+  //.state('app.profile', {
+  //  url: '/profile',
+  //  views: {
+  //    'app-profile': {
+  //      templateUrl: 'templates/profile.html',
+  //      //controller: 'AuthController'
+  //      controller: 'ProfileController'
+  //    }
+  //  }
+  //})
 
-  .state('tab.account', {
+  .state('app.tab.account', {
     url: '/account',
     views: {
       'tab-account': {
