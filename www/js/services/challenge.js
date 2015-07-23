@@ -18,11 +18,13 @@ app.factory('Challenge', function(FURL, $firebase, Auth, toaster, Photo) {
 
       var data = photo.imageURI;
       var imageSave = "data:image/jpeg;base64," + data;
+      //alert('creator,', Auth.user.uid.name);
+      alert('creator,', currentUser.profile.name);
 
       var obj ={
         //photoId: newPhoto.key(),
         //type: true,
-        creator: Auth.user.uid,
+        creator: currentUser.profile.name,
         created: photo.datetime,
         name: photo.name,
         description: photo.description,

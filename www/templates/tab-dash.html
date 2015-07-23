@@ -24,12 +24,19 @@
 
         <!--CHALLENGES-->
     <ion-item class="list card" ng-repeat="challenge in challenges | filter: searchChallenges" href= "#/app/tab/dash/{{challenge.$id}}">
+      <div class="item item-avatar">
+        <img src="../img/avatar.png">
+        <h2>{{challenge.creator}}</h2>
+        <h2>{{currentUser.profile.gravatar}}</h2>
+        <p>Time Remaining</p>
+      </div>
+
       <div class="item item-image" >
         <figure class="tint">
           <h2 class="textOnImage" >{{challenge.description}}</h2></br>
           <!--<h2 class="textOnImage2"> {{challenge.days}} {{challenge.hours}} {{challenge.minutes}} {{challenge.seconds}}</h2>-->
           <!--<h2 class="textOnImage2" >Days Hours Minutes Seconds</h2>-->
-          <img style="width: 300px; height: 280px" ng-src="{{challenge.image}}">
+          <img style="width: 100%" ng-src="{{challenge.image}}">
         </figure>
         <div>
           <!--<a class="button button-icon ion-ios-plus-outline" icon-off="ion-ios-plus-outline" icon-on="ion-ios-checkmark" data-state="off" ng-click="activate(challenge)" icon-switcher>-->

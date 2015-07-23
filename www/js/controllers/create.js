@@ -39,7 +39,37 @@ app.controller('CreateController', function($scope, FURL, $firebase, $stateParam
       Accept.addActivate($scope.selectedChallenge.$id, accept).then(function(){
         console.log('saved');
       });
+  };
+
+  if($stateParams.photoId) {
+    var photoId = $stateParams.photoId;
+    var photo = Photo.getPhoto(photoId).$asObject();
+    setSelectedPhoto(photo); //we call this below and pass in the challenge
   }
+
+  function setSelectedPhoto(photo){
+    $scope.selectedPhoto = photo;
+
+    console.log('selected Photo is 2 ', photo);
+    //$scope.votes = Vote.votes(photo.$id);
+  }
+  //
+  //$scope.vote = function() {
+  //  //console.log('the id is', challenge.$id);
+  //  console.log('the id is2 ', $scope.selectedPhoto);
+  //  //console.log('the button was clicked');
+  //  var vote = {
+  //    status: 'on',
+  //    user: Auth.user.profile.$id,
+  //    name: Auth.user.profile.name,
+  //    challengeId: challenge.$id,
+  //    photoId: photo.$id
+  //  };
+  //  console.log(accept);
+  //  Accept.addActivate($scope.selectedChallenge.$id, accept).then(function(){
+  //    console.log('saved');
+  //  });
+  //}
 
 });
 

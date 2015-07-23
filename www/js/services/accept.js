@@ -3,13 +3,28 @@
 app.factory('Accept', function(FURL, $firebase, Auth, Challenge, toaster) {
 
   var ref = new Firebase(FURL);
-  var user = Auth.user;
+  var uid = Auth.user.uid;
 
 
   var Accept = {
+    //getAcceptsForUser: function(uid){
+    //  var defer = $q.defer();
+    //
+    //  $firebase(ref.child('accepteds').child(user))
+    //    .$asArray()
+    //    .$loaded()
+    //    .then(function(challengeId){
+    //      defer.resolve(challengId);
+    //    }, function(err){
+    //      defer.reject();
+    //    });
+    //
+    //  return defer.promise;
+    //},
+
     accepteds: function(challengeId){
       //console.log(challenge);
-      return $firebase(ref.child('accepteds').child(challengeId)).$asArray();
+      return $firebase(ref.child('accepteds')).$asArray();
     },
     addActivate: function(challengeId, accept){
       console.log('in the acitvate function');
@@ -24,11 +39,6 @@ app.factory('Accept', function(FURL, $firebase, Auth, Challenge, toaster) {
     },
     isActive: function(){
      //return Challenge.userAcceptChallenge(user.id);
-
-
-
-
-
   }
   };
   return Accept;

@@ -30,10 +30,10 @@
     </button><br>
 
     <div>
-      <div style="height:100px; width:100px; float: left" class="item item-image" ng-repeat="photo in photos | filter: {creator: 'simplelogin:13'} | orderBy: 'datetime': false | limitTo: 1" href= "">
-        <img ng-src="{{photo.image}}">
+      <ion-item style="height:100px; width:100px; padding:0px !important; float: left" class="item item-image" ng-repeat="photo in photos" href= "#/app/tab/dash/{{challenge.$id}}/{{photo.$id}}">
+        <img style="height:100px; width:100px; padding:0px !important " ng-src="{{photo.image}}">
         <!--{{photo.name}}-->
-      </div>
+      </ion-item>
     </div>
   </ion-content>
 </ion-view>

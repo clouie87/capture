@@ -17,13 +17,29 @@ app.controller('AuthController', function($scope, $state, Auth, $ionicPopup) {
       title: 'Login',
       cssClass: 'loginPopup',
       scope: $scope,
-      buttons:[{
-        text: 'x',
-        type:'button button-icon icon ios-close-round'
-        },
+      buttons:[
+        //{
+        //text: 'x',
+        //type:'button button-icon icon ios-close-round'
+        //},
         {
           text: 'Login',
-          type:'button-energized',
+          type: 'button-energized',
+          onTap: function (user) {
+            user = $scope.user;
+            Auth.login(user).then(function () {
+              console.log("Logged in succesfully!");
+              $state.go('app.tab.dash');
+
+            }, function (err) {
+              console.log('Error...');
+              //toaster.pop('error', "Oops there was an error!");
+            })
+          }
+        },
+          {
+          text: 'Signup',
+          type:'button-assertive',
           onTap: function(user){
             user= $scope.user;
             Auth.login(user).then(function () {
@@ -64,7 +80,7 @@ app.controller('AuthController', function($scope, $state, Auth, $ionicPopup) {
           user= $scope.user;
           Auth.signup(user).then(function () {
             console.log("Signup succesfully!");
-            $state.go('tab.dash');
+            $state.go('app.tab.dash');
           }, function (err) {
             console.log('Error...');
             //toaster.pop('error', "Oops there was an error!");

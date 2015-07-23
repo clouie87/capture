@@ -20,10 +20,27 @@ $dark:                            #444 !default;
   src: url('font-awesome-4.3.0/fonts/fontawesome-webfont.eot') format('embedded-opentype');
 }
 
-
+.bar.bar-positive {
+  border-color: transparent !important;
+  background-color: transparent !important;
+  background-image: url('../img/launch.png') !important;
+  background-size: 100%;
+//  background-repeat: no-repeat !important;
+//  z-index: -1;
+  opacity: .8;
+  filter: alpha(opacity=80) !important;
+}
 
 #toast-container{
   margin-top: 20%;
+}
+
+.bg{
+  background: url(../img/launch.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
 }
 
 .img-circle.gravatar {
@@ -53,19 +70,61 @@ $dark:                            #444 !default;
   font-size: 30px;
   color: #ffff00;
 }
-
-.popup-container .popup {
-  width: 80% !important;
+.loginPlaceholders{
+  color:#ffffff !important;
 
 }
+
+.camera{
+  width: 34% !important;
+  border: none !important;
+  background-color: transparent !important;
+  margin-left: 33% !important;
+  padding: 12% !important;
+}
+.popup-container .popup {
+  width: 80% !important;
+  background-image: url(../img/login.png);
+  background-repeat: no-repeat;
+  background-size: 140%;
+  background-position: center;
+  opacity: .6;
+  background-color: transparent !important;
+  filter: alpha(opacity=60) !important;
+  border-radius: 10% !important;
+
+}
+
+.loginPopup{
+  background-color: red;
+
+
+}
+
 .popup-head {
-  background-color: #33cd5f;
+//  border-radius: 10% 10% 0 0 !important;
+//  background-color: rgba(0,0,0,.5);
 }
 .photoUploadPopup .popup-head{
   background-color: #886aea;
 }
 .popup-title{
   color: white;
+  font-size: 24px !important;
+}
+
+.popup-buttons{
+  border-radius: 10%;
+  flex-direction: column !important;
+//  margin-top: -20px
+  margin: -10px 5px 5px 5px;
+//  opacity: .6;
+}
+
+.popup-buttons .button{
+  margin: 5px !important;
+//  margin-left: 10% !important;
+
 }
 
 .popup-buttons button.button-icon.icon.ios-close-round {
@@ -74,25 +133,20 @@ $dark:                            #444 !default;
   color: white;
 }
 
-.popup-buttons {
-  width: 90%;
-}
-
-
-.panel-body{
-  background-color: white;
-}
-
-
 .list-inset .item.item-input input{
-  margin-left: 10%;
-  margin-right: 10%;
+//  margin-left: 10%;
+//  margin-right: 10%;
   border-bottom: 1px #dddddd solid;
 }
 label.item.item-input {
+  background-color: transparent !important;
 
   //  border-top-style: none !important;
   border: none !important;
+}
+
+.item {
+  color: #FBF7F7 !important;
 }
 
 .button.button-icon.ion-ios-star-outline{
@@ -123,8 +177,19 @@ label.item.item-input {
   text-shadow: 1px 1px 1px #A6EFB8;
 }
 
+.item {
+  border: none !important;
+}
+
 .item-content{
-  margin-left: 3%;
+//  margin-left: 3%;
+}
+
+.card {
+  display: block !important;
+}
+.item-complex .item-content, .item-radio .item-content{
+  padding: 0 !important;
 }
 
 #profile.card{
@@ -174,23 +239,37 @@ h2.textOnImage2.ng-binding{
   white-space: normal;
 }
 
-
 img{
   max-height: 300px;
   max-width: 300px;
+  border: 1px grey solid;
   //  margin-left: 5%;
   position: center center fixed;
   //  background: rgba(0,0,0, 0.5);
 
 }
-//img.photo{
-//  min-height: 250px;
-//  min-width: 250px;
-//}
-//img.thumbnail{
-//  width: 100px;
-//  height: 100px;
-//}
+
+.item-image{
+  margin:0;
+  padding-left: 7.7% !important;
+  width: 100%
+}
+
+.item.item-avatar{
+  background-color: #BCB185;
+//  background-color: #779DB2;
+  margin: 0;
+  width: 100%;
+
+}
+.item-avatar>img {
+//  border: 1px solid grey;
+  max-width: 50px !important;
+  max-height: 50px !important;
+  top: 17% !important;
+//  left: -1px !important;
+//  padding: 1%;
+}
 
 .tint {
   position: relative;
@@ -198,9 +277,9 @@ img{
   margin-right: 20px;
   margin-bottom: 20px;
   cursor: pointer;
-  -webkit-box-shadow: rgba(0,0,0,.2) 3px 5px 5px;
-  -moz-box-shadow: rgba(0,0,0,.2) 3px 5px 5px;
-  box-shadow: rgba(0,0,0,.2) 3px 5px 5px;
+//  -webkit-box-shadow: rgba(0,0,0,.2) 3px 5px 5px;
+//  -moz-box-shadow: rgba(0,0,0,.2) 3px 5px 5px;
+//  box-shadow: rgba(0,0,0,.2) 3px 5px 5px;
 }
 
 .tint:before {
@@ -211,6 +290,8 @@ img{
   bottom: 0;
   left: 0;
   right: 0;
+  margin-top: 20px;
+  margin-bottom: 5px;
   background: rgba(0,0,0, 0.5);
   -moz-transition: all .3s linear;
   -webkit-transition: all .3s linear;

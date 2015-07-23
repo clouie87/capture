@@ -29,6 +29,7 @@ app.factory('Photo', function(FURL, $firebase, Auth, toaster) {
         var obj ={
           //photoId: newPhoto.key(),
           //type: true,
+          challengeId: photo.challengeId,
           creator: Auth.user.uid,
           created: photo.datetime,
           name: photo.name,

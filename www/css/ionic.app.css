@@ -19,8 +19,22 @@ $dark:                            #444 !default;
   font-family: awesome;
   src: url('font-awesome-4.3.0/fonts/fontawesome-webfont.eot') format('embedded-opentype'); }
 
+.bar.bar-positive {
+  border-color: transparent !important;
+  background-color: transparent !important;
+  background-image: url('../img/launch.png') !important;
+  background-size: 100%;
+  opacity: .8;
+  filter: alpha(opacity=80) !important; }
+
 #toast-container {
   margin-top: 20%; }
+
+.bg {
+  background: url(../img/launch.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center; }
 
 .img-circle.gravatar {
   width: 32px;
@@ -44,36 +58,59 @@ $dark:                            #444 !default;
   font-size: 30px;
   color: #ffff00; }
 
-.popup-container .popup {
-  width: 80% !important; }
+.loginPlaceholders {
+  color: #ffffff !important; }
 
-.popup-head {
-  background-color: #33cd5f; }
+.camera {
+  width: 34% !important;
+  border: none !important;
+  background-color: transparent !important;
+  margin-left: 33% !important;
+  padding: 12% !important; }
+
+.popup-container .popup {
+  width: 80% !important;
+  background-image: url(../img/login.png);
+  background-repeat: no-repeat;
+  background-size: 140%;
+  background-position: center;
+  opacity: .6;
+  background-color: transparent !important;
+  filter: alpha(opacity=60) !important;
+  border-radius: 10% !important; }
+
+.loginPopup {
+  background-color: red; }
 
 .photoUploadPopup .popup-head {
   background-color: #886aea; }
 
 .popup-title {
-  color: white; }
+  color: white;
+  font-size: 24px !important; }
+
+.popup-buttons {
+  border-radius: 10%;
+  flex-direction: column !important;
+  margin: -10px 5px 5px 5px; }
+
+.popup-buttons .button {
+  margin: 5px !important; }
 
 .popup-buttons button.button-icon.icon.ios-close-round {
   width: 5%;
   flex: none !important;
   color: white; }
 
-.popup-buttons {
-  width: 90%; }
-
-.panel-body {
-  background-color: white; }
-
 .list-inset .item.item-input input {
-  margin-left: 10%;
-  margin-right: 10%;
   border-bottom: 1px #dddddd solid; }
 
 label.item.item-input {
+  background-color: transparent !important;
   border: none !important; }
+
+.item {
+  color: #FBF7F7 !important; }
 
 .button.button-icon.ion-ios-star-outline {
   float: left;
@@ -96,8 +133,14 @@ label.item.item-input {
   color: green;
   text-shadow: 1px 1px 1px #A6EFB8; }
 
-.item-content {
-  margin-left: 3%; }
+.item {
+  border: none !important; }
+
+.card {
+  display: block !important; }
+
+.item-complex .item-content, .item-radio .item-content {
+  padding: 0 !important; }
 
 #profile.card {
   width: 100px;
@@ -141,17 +184,30 @@ h2.textOnImage2.ng-binding {
 img {
   max-height: 300px;
   max-width: 300px;
+  border: 1px grey solid;
   position: center center fixed; }
+
+.item-image {
+  margin: 0;
+  padding-left: 7.7% !important;
+  width: 100%; }
+
+.item.item-avatar {
+  background-color: #BCB185;
+  margin: 0;
+  width: 100%; }
+
+.item-avatar > img {
+  max-width: 50px !important;
+  max-height: 50px !important;
+  top: 17% !important; }
 
 .tint {
   position: relative;
   float: left;
   margin-right: 20px;
   margin-bottom: 20px;
-  cursor: pointer;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 3px 5px 5px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.2) 3px 5px 5px;
-  box-shadow: rgba(0, 0, 0, 0.2) 3px 5px 5px; }
+  cursor: pointer; }
 
 .tint:before {
   content: "";
@@ -161,6 +217,8 @@ img {
   bottom: 0;
   left: 0;
   right: 0;
+  margin-top: 20px;
+  margin-bottom: 5px;
   background: rgba(0, 0, 0, 0.5);
   -moz-transition: all .3s linear;
   -webkit-transition: all .3s linear;

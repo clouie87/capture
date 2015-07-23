@@ -92,6 +92,16 @@ var app = angular.module('starter', [
     }
   })
 
+  .state('app.tab.photo-display', {
+    url: '/dash/:challengeId/:photoId',
+    views: {
+      'tab-dash': {
+        templateUrl: 'templates/photo-display.html',
+        controller: 'CreateController'
+      }
+    }
+  })
+
   .state('app.tab.photo', {
       url: '/photo',
       views: {

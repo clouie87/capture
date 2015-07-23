@@ -3,7 +3,16 @@
 app.controller('PhotoController', function($scope, $rootScope, $state, Auth, FURL, $ionicPopup, $cordovaCamera, toaster, Photo, Challenge, Accept){
   console.log('got to the PhotoContoller linked');
   $scope.photos = Photo.all;
+  $scope.signedIn = Auth.signedIn;
   console.log($scope.photos);
+  //var user = Auth.user;
+
+  console.log(Auth.user);
+  console.log(Auth.user.profile);
+  console.log(Auth.signedIn);
+
+  //$scope.accepteds = Accept.getAcceptsForUser(Auth.user.uid);
+  //console.log('the accepted are ', $scope.accepteds);
 
   $rootScope.data = {};
   $rootScope.data.imageURI = "http://41.media.tumblr.com/tumblr_mby7btxbMs1r8gydho1_500.jpg";
@@ -36,7 +45,7 @@ app.controller('PhotoController', function($scope, $rootScope, $state, Auth, FUR
     };
 
 
-    $state.go('tab.photo-camera');
+    $state.go('app.tab.photo-camera');
 
     navigator.camera.getPicture(function(photo) {
       //alert('image is: ' + options.quality);

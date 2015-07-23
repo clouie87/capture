@@ -2,6 +2,12 @@
 
   <div class="panel-body">
     <form name="submitForm" ng-model="photo" ng-submit="submit(photo)">
+
+      <label class="item item-input">
+        <!--<i class="ion-ios-email" style="font-size: 30px"></i>&nbsp;&nbsp;-->
+        <input class="loginPlaceholders" type="text" placeholder="Challenge" ng-model="photo.challengeId">
+      </label>
+
       <label class="item item-input">
         <!--<i class="ion-ios-email" style="font-size: 30px"></i>&nbsp;&nbsp;-->
         <input class="loginPlaceholders" type="text" placeholder="Name" ng-model="photo.name">
