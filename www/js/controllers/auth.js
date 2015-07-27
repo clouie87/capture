@@ -26,7 +26,9 @@ app.controller('AuthController', function($scope, $state, Auth, $ionicPopup) {
           text: 'Login',
           type: 'button-energized',
           onTap: function (user) {
+
             user = $scope.user;
+            console.log('the use is logging in', user);
             Auth.login(user).then(function () {
               console.log("Logged in succesfully!");
               $state.go('app.tab.dash');
@@ -41,6 +43,7 @@ app.controller('AuthController', function($scope, $state, Auth, $ionicPopup) {
           text: 'Signup',
           type:'button-assertive',
           onTap: function(user){
+            //console.log('the use is logging in', user);
             user= $scope.user;
             Auth.login(user).then(function () {
               console.log("Logged in succesfully!");

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="416px" height="384px" viewBox="0 0 416 384" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>android-favorite-outline</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="android-favorite-outline" sketch:type="MSLayerGroup" fill="#BCB185">
+            <path d="M301.6,0 C265.2,0 230.882,16.742 208,43.947 C185.117,16.742 150.8,0 114.4,0 C49.918,0 0,50.221 0,115.095 C0,194.611 70.718,258.443 177.836,356.789 L208,384 L238.164,356.789 C345.281,258.442 416,194.61 416,115.095 C416,50.221 366.082,0 301.6,0 L301.6,0 Z M220.836,329.257 L216.617,333.13 L208,340.903 L199.384,333.131 L195.17,329.262 C144.752,282.98 101.209,243.008 72.424,207.268 C44.467,172.555 32,144.128 32,115.095 C32,92.23 40.422,71.164 55.715,55.779 C70.957,40.445 91.798,32 114.4,32 C140.534,32 166.37,44.167 183.51,64.545 L208,93.661 L232.489,64.545 C249.63,44.167 275.465,32 301.6,32 C324.203,32 345.043,40.445 360.286,55.778 C375.578,71.164 384,92.229 384,115.095 C384,144.128 371.533,172.554 343.578,207.266 C314.794,243.006 271.253,282.975 220.836,329.257 L220.836,329.257 Z" id="Shape" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

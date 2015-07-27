@@ -5,6 +5,7 @@ app.factory('Challenge', function(FURL, $firebase, Auth, toaster, Photo) {
   //var photos = $firebase(ref.child('photos')).$asArray();
   var challenges = $firebase(ref.child('challenges')).$asArray();
   var currentUser = Auth.user;
+  var uid = currentUser.uid;
 
   var Challenge = {
     all: challenges,
@@ -12,6 +13,7 @@ app.factory('Challenge', function(FURL, $firebase, Auth, toaster, Photo) {
     getChallenge: function (challengeId) {
     return $firebase(ref.child('challenges').child(challengeId));
     },
+
 
     createChallenge: function(photo){
       photo.datetime = Firebase.ServerValue.TIMESTAMP;
@@ -38,24 +40,26 @@ app.factory('Challenge', function(FURL, $firebase, Auth, toaster, Photo) {
       });
 
     },
-    userAcceptChallenge: function(challengeId){
 
+    accepteds: function(uid){
+      console.log('the challenge in the accepted funtion is', uid);
+      return $firebase(ref.child('accepteds_user').child(uid)).$asArray();
+    },
 
-      Challenge.getChallenge(challengeId)
-      .$asObject()
-      .$loaded()
-      .then(function(challenge) {
-        console.log('in the userAcceptChallenge function');
-          var object ={
-            challengeId: challengeId,
-            user: Auth.user.profile.id,
-            type: true,
-            title: challenge.name
-          };
-          return $firebase(ref.child('user_challenges').child(challenge.user).$push(object));
+    addActivate: function(uid, challengeId, accept) {
+      console.log('in the acitvate user function');
+      console.log('the challenge id is ', challengeId);
 
+      var accepteds_user = this.accepteds(uid);
+      console.log(accepteds_user);
 
-      });
+      if (accepteds_user) {
+        console.log('adding to accepteds_user');
+        return accepteds_user.$add(accept);
+      }
+
+      //return $firebase(ref.child('user_challenges').child(challenge.user).$push(object));
+
 
     }
 

@@ -2,6 +2,7 @@
 
 app.controller('PhotoController', function($scope, $rootScope, $state, Auth, FURL, $ionicPopup, $cordovaCamera, toaster, Photo, Challenge, Accept){
   console.log('got to the PhotoContoller linked');
+
   $scope.photos = Photo.all;
   $scope.signedIn = Auth.signedIn;
   console.log($scope.photos);

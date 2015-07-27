@@ -23,7 +23,7 @@ $dark:                            #444 !default;
   border-color: transparent !important;
   background-color: transparent !important;
   background-image: url('../img/launch.png') !important;
-  background-size: 100%;
+  background-size: cover !important;
   opacity: .8;
   filter: alpha(opacity=80) !important; }
 
@@ -33,7 +33,7 @@ $dark:                            #444 !default;
 .bg {
   background: url(../img/launch.png);
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center; }
 
 .img-circle.gravatar {
@@ -61,9 +61,19 @@ $dark:                            #444 !default;
 .loginPlaceholders {
   color: #ffffff !important; }
 
+.captureTitle {
+  text-align: center;
+  color: white !important;
+  margin-top: 50%;
+  margin-bottom: 5%;
+  font-size: 48px !important; }
+
 .camera {
-  width: 34% !important;
+  width: 40% !important;
   border: none !important;
+  background-image: url(../img/camera.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
   background-color: transparent !important;
   margin-left: 33% !important;
   padding: 12% !important; }
@@ -81,6 +91,9 @@ $dark:                            #444 !default;
 
 .loginPopup {
   background-color: red; }
+
+.accept-name {
+  column-count: 8; }
 
 .photoUploadPopup .popup-head {
   background-color: #886aea; }
@@ -112,6 +125,32 @@ label.item.item-input {
 .item {
   color: #FBF7F7 !important; }
 
+.likeIcons {
+  font-size: 24px !important;
+  width: 90% !important;
+  margin-bottom: -10px; }
+
+ul {
+  margin-bottom: 10px;
+  column-count: 6;
+  -webkit-column-count: 6;
+  -moz-column-count: 6; }
+
+li {
+  color: grey; }
+
+a.button {
+  background-color: transparent !important;
+  border: none !important;
+  min-height: 20px !important; }
+
+img.like {
+  background-color: transparent;
+  border: none;
+  width: 40px;
+  min-height: 30px;
+  margin-left: -15%; }
+
 .button.button-icon.ion-ios-star-outline {
   float: left;
   color: yellow;
@@ -129,8 +168,8 @@ label.item.item-input {
   background-color: rgba(142, 245, 142, 0.69) !important;
   color: green; }
 
-.radio-icon.ion-checkmark {
-  color: green;
+a.button.button-icon.ion-ios-checkmark {
+  color: #51BC1D !important;
   text-shadow: 1px 1px 1px #A6EFB8; }
 
 .item {
@@ -206,7 +245,6 @@ img {
   position: relative;
   float: left;
   margin-right: 20px;
-  margin-bottom: 20px;
   cursor: pointer; }
 
 .tint:before {

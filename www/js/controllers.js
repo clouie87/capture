@@ -1,6 +1,11 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope) {
+    $scope.like = function(){
+      console.log('button clicked liked');
+
+    }
+  })
 
 .controller('ChatsCtrl', function($scope, Chats) {
   $scope.chats = Chats.all();

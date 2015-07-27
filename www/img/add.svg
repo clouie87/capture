@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="416px" height="416px" viewBox="0 0 416 416" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
+    <title>ios-plus-outline</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="ios-plus-outline" sketch:type="MSLayerGroup" fill="#BCB185">
+            <g id="Group" sketch:type="MSShapeGroup">
+                <path d="M208,0 C93.1,0 0,93.1 0,208 C0,322.9 93.1,416 208,416 C322.9,416 416,322.9 416,208 C416,93.1 322.9,0 208,0 L208,0 Z M207.999997,385.699994 C110.064655,385.699994 30.3,306.028522 30.3,207.999997 C30.3,109.971472 110.064655,30.3 207.999997,30.3 C305.935339,30.3 385.699994,110.064655 385.699994,207.999997 C385.699994,305.935339 305.935339,385.699994 207.999997,385.699994 L207.999997,385.699994 Z" id="Shape"></path>
+                <path d="M216.732813,78 L198.620313,78 L198.620313,199.773438 L70,199.773438 L70,216.835938 L198.620313,216.835938 L198.620313,338 L216.732813,338 L216.732813,216.835938 L346,216.835938 L346,199.773438 L216.732813,199.773438 L216.732813,78 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

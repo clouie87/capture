@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.4, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="121px" height="82px"
+	 viewBox="0 0 121 82" enable-background="new 0 0 121 82" xml:space="preserve">
+<title>CameraBody + CameraDetailing + lense@2x</title>
+<desc>Created with Sketch.</desc>
+<g id="Page-1" sketch:type="MSPage">
+	<g id="CameraBody-_x2B_-CameraDetailing-_x2B_-lense" transform="translate(1.000000, 0.000000)" sketch:type="MSLayerGroup">
+		<path id="CameraBody" sketch:type="MSShapeGroup" fill="#082187" d="M4,0.5h111c1.656,0,3,1.343,3,3v72c0,1.656-1.344,3-3,3H4
+			c-1.657,0-3-1.344-3-3v-72C1,1.843,2.343,0.5,4,0.5z"/>
+		<g id="CameraDetailing" transform="translate(0.000000, 4.000000)" sketch:type="MSShapeGroup">
+			<path id="Rectangle-4-Copy-3" display="none" fill="#D8D8D8" d="M79.801,68.123c-2.843,3.424,0.928-0.916,1.533-0.916h35.39
+				c0.603,0,1.093,0.418,1.093,0.916v5.17c0,0.505-0.486,0.914-1.093,0.914H75.596c-0.604,0,0-0.416,0-0.914l4.205-4.541"/>
+			<path id="Rectangle-4-Copy-5" display="none" fill="#D8D8D8" d="M39.015,68.123c2.843,3.424-0.927-0.916-1.533-0.916H2.092
+				C1.489,67.207,1,67.625,1,68.123v5.17c0,0.505,0.486,0.914,1.092,0.914H43.22c0.603,0,0-0.416,0-0.914l-4.206-4.541"/>
+			<path id="Rectangle-4-Copy" fill="#FFFFFF" d="M80.985,22.902C78.143,18.792,81.912,24,82.518,24h35.391
+				c0.603,0,1.092-0.5,1.092-1.098v-6.204c0-0.606-0.486-1.098-1.092-1.098H76.779c-0.603,0,0,0.5,0,1.098l4.206,5.448"/>
+			<path id="Rectangle-4" fill="#FFFFFF" d="M35.299,22.202c2.64-4.109-0.86,1.098-1.423,1.098H1.014C0.454,23.3,0,22.8,0,22.202
+				v-6.204C0,15.392,0.452,14.9,1.014,14.9h38.19c0.56,0,0,0.5,0,1.098l-3.905,5.449"/>
+			
+				<linearGradient id="Rectangle-3_1_" gradientUnits="userSpaceOnUse" x1="-402.959" y1="295.3877" x2="-402.5149" y2="294.3873" gradientTransform="matrix(20 0 0 -12 8159 3545.5)">
+				<stop  offset="0" style="stop-color:#BEBB20"/>
+				<stop  offset="1" style="stop-color:#6C6A12"/>
+			</linearGradient>
+			<path id="Rectangle-3" display="none" fill="url(#Rectangle-3_1_)" stroke="#979797" d="M95,0.5h18c0.553,0,1,0.448,1,1v10
+				c0,0.552-0.447,1-1,1H95c-0.553,0-1-0.448-1-1v-10C94,0.948,94.447,0.5,95,0.5z"/>
+		</g>
+		<g id="lense" transform="translate(23.000000, 8.000000)" sketch:type="MSShapeGroup">
+			<circle id="Oval-1" fill="#082187" cx="36.5" cy="37" r="36.5"/>
+			<ellipse id="Oval-2" fill="#D8D8D8" cx="36.5" cy="37" rx="32.5" ry="31.5"/>
+			<circle id="Oval-4" fill="#082187" cx="36.5" cy="37" r="16.5"/>
+			<circle id="Oval-3" display="none" fill="#DECF1E" cx="36.5" cy="35" r="12.5"/>
+		</g>
+	</g>
+</g>
+</svg>

@@ -21,6 +21,7 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase){
     },
 
     login: function (user) {
+      console.log('the user is', user);
       return auth.$authWithPassword({
         email: user.email,
         password: user.password

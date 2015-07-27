@@ -2,6 +2,7 @@
 
 app.factory('Photo', function(FURL, $firebase, Auth, toaster) {
   var ref = new Firebase(FURL);
+
   var photos = $firebase(ref.child('photos')).$asArray();
   var challenges = $firebase(ref.child('challenges')).$asArray();
   var user = Auth.user;
