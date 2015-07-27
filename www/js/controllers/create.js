@@ -7,58 +7,30 @@ app.controller('CreateController', function($scope, FURL, $firebase, $stateParam
   $scope.signedIn = Auth.signedIn;
   //$scope.userAccepts = [];
 
-  $scope.userAccepts = Acceptu.all;
+  //$scope.userAccepts = Acceptu.all;
   $scope.challengeAccept = Accept.accepteds;
+  $scope.acceptUser =[];
 
   $scope.photos = Photo.all;
   console.log($scope.photos);
   var currentUser = Auth.user;
   var uid = currentUser.uid;
 
-  //console.log('the photos are', $scope.photos);
-  //console.log('the accepteds are', $scope.accepteds);
-  //console.log('the accepteds uid is ', uid);
-  //
+
+  Acceptu.getAcceptsForUser(uid).$asArray().$loaded().then(function (acceptUser) {
+    $scope.acceptUser = acceptUser;
+    console.log('the user accept is', acceptUser);
+  });
 
   $scope.isActive = function (challengeId){
-    console.log(challengeId);
-
-    Acceptu.getAcceptsForUser(uid).$asArray().$loaded().then(function (acceptUser) {
-      if (acceptUser) {
-        for (var i = 0; i < acceptUser.length; i++) {
-          var accept = acceptUser[i];
-
-          if(accept.challengeId === challengeId) {
-            console.log('returning true');
-            return true;
-          }
-        }
-        return false;
+    for (var i = 0; i < $scope.acceptUser.length; i++) {
+      console.log('the scope is ', $scope.acceptUser.length);
+      if ($scope.acceptUser[i].challengeId === challengeId) {
+        return true;
       }
-    });
-    //$scope.userAccepts.$loaded().then(function(accepts){
-    //  console.log('we are doing a test');
-    //  for(var i=0; i < accepts.length; i++) {
-    //    console.log(accepts[i]);
-    //    //if ($scope.userAccepts[i].id.challengeId === challengeId){
-    //    //  return true;
-    //    //}
-    //  }
-      //accepts = accepts.$id.challengeId;
-      //console.log(accepts);
-    //  return false;
-    //});
-    //console.log($scope.userAccepts);
-    //for(var i=0; i < $scope.userAccepts.length; i++) {
-    //  console.log($scope.userAccepts[i]);
-    //  //if ($scope.userAccepts[i].id.challengeId === challengeId){
-    //  //  return true;
-    //  //}
-    //}
-    //return false;
+    }
+    return false;
   };
-
-
 
   if($stateParams.challengeId) {
     console.log('the challenge is ', challenge);

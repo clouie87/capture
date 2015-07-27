@@ -20,13 +20,12 @@ app.factory('Acceptu', function(FURL, $firebase, Auth, Challenge, toaster) {
     getAcceptsForUser: function(uid){
       //console.log(uid);
       return $firebase(ref.child('accepteds_user').child(uid));
-    }
+    },
 
-    //isActive: function(challengeId){
-    //  console.log('in the is active function');
-    //  return true;
-    //
-    //}
+    isActive: function(uid) {
+      return $firebase(ref.child('accepteds_user').child(uid));
+
+    }
 
     //addActivate: function(uid, challengeId, accept){
     //  console.log('in the acitvate user function');
