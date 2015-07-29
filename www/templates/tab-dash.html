@@ -23,7 +23,7 @@
       </div>
 
         <!--CHALLENGES-->
-    <ion-item class="list card" ng-repeat="challenge in challenges | filter: searchChallenges" href= "#/app/tab/dash/{{challenge.$id}}">
+    <ion-item class="list card" ng-repeat="challenge in challenges | orderBy:'-created' | filter: searchChallenges" href= "#/app/tab/dash/{{challenge.$id}}">
       <div class="item item-avatar">
         <img src={{currentUser.profile.gravatar}}>
         <h2>{{challenge.creator}}</h2>
@@ -39,7 +39,7 @@
         </figure>
 
         <div ng-show="isActive(challenge.$id)">
-          <a class="button button-icon ion-ios-checkmark" icon-off="ion-ios-plus-outline" icon-on="ion-ios-checkmark" data-state="on" ng-click="activate(challenge)" icon-switcher>
+          <a class="button button-icon ion-ios-checkmark" icon-off="ion-ios-plus-outline" icon-on="ion-ios-checkmark" data-state="on" ng-click="deactivate(challenge)" icon-switcher>
           </a>
           <a class="button button-icon ion-ios-chatbubble-outline" ng-click="like()">
           </a>
@@ -51,7 +51,17 @@
           <a class="button button-icon ion-ios-chatbubble-outline" ng-click="like()">
           </a>
         </div>
+      </div>
 
+        <div class="nameList">
+          <span ng-repeat="accept in accept[challenge.$id]" style="color: grey"> {{accept}},&nbsp; </span>
+        </div>
+
+        <!--<div class="nameList" ng-hide="getNames(challenge.$id)">-->
+          <!--<ul>-->
+            <!--<li ng-repeat="accept in accepteds" style="color: grey"> &nbsp; </li>-->
+          <!--</ul>-->
+        <!--</div>-->
         <!--<div ng-show="userAccepts" class="row likeIcons" ng-repeat="accept in userAccepts">-->
 
           <!--<a class="button button-icon ion-ios-plus-outline" icon-off="ion-ios-plus-outline" icon-on="ion-ios-checkmark" data-state="off" ng-click="activate(challenge)" icon-switcher>-->
@@ -69,13 +79,13 @@
 
 
 
-        <div class = "nameList">
-          <ul>
-            <li ng-repeat="accept in accepteds" style="color: grey"> {{accept.challengeId}}, &nbsp; </li>
-          </ul>
-        </div>
+        <!--<div class = "nameList">-->
+          <!--<ul>-->
+            <!--<li ng-repeat="accept in accepteds" style="color: grey"> {{accept.challengeId}}, &nbsp; </li>-->
+          <!--</ul>-->
+        <!--</div>-->
 
-      </div>
+
 
 
     </ion-item>

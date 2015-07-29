@@ -3,6 +3,11 @@
   <div class="panel-body">
     <form name="login" ng-model= "user" ng-submit="login(user)">
       <label class="item item-input">
+        <i class="ion-ios-person" style="font-size: 30px"></i>&nbsp;&nbsp;
+        <input class="loginPlaceholders" type="text" placeholder="Name" ng-model="user.name">
+      </label>
+
+      <label class="item item-input">
         <i class="ion-ios-email" style="font-size: 30px"></i>&nbsp;&nbsp;
         <input class="loginPlaceholders" type="text" placeholder="E-mail" ng-model="user.email">
       </label>

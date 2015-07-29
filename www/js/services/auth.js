@@ -28,12 +28,15 @@ app.factory('Auth', function(FURL, $firebaseAuth, $firebase){
       });
     },
     signup: function (user) {
+      console.log('the user is signing up is,', user);
       return auth.$createUser({
         email: user.email,
         password: user.password
       }).then(function () {
+        console.log('saving new user');
         return Auth.login(user);
       }).then(function(data) {
+        console.log('the new user is,', data);
         return Auth.createProfile(data.uid, user);
       });
     },

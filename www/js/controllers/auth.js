@@ -14,14 +14,11 @@ app.controller('AuthController', function($scope, $state, Auth, $ionicPopup) {
     console.log('open login modal');
     var myLogin = $ionicPopup.show({
       templateUrl: 'templates/partials/login.html',
-      title: 'Login',
+      title: 'Seek & Shoot',
       cssClass: 'loginPopup',
       scope: $scope,
       buttons:[
-        //{
-        //text: 'x',
-        //type:'button button-icon icon ios-close-round'
-        //},
+
         {
           text: 'Login',
           type: 'button-energized',
@@ -45,7 +42,7 @@ app.controller('AuthController', function($scope, $state, Auth, $ionicPopup) {
           onTap: function(user){
             //console.log('the use is logging in', user);
             user= $scope.user;
-            Auth.login(user).then(function () {
+            Auth.signup(user).then(function () {
               console.log("Logged in succesfully!");
               $state.go('app.tab.dash');
 
