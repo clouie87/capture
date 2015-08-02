@@ -1,0 +1,45 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-positive">
+    <h1 class="title">Comments</h1>
+    <button class="button button-clear button-primary" ng-click="modal.hide()">Cancel</button>
+  </ion-header-bar>
+  <ion-content class="padding">
+
+    <div class="list comments" ng-repeat="comment in comments">
+
+      <li class="item item-right comments">
+        <span class="item-note comments">
+          {{comment.name}}:
+        </span>
+        {{comment.comment}}
+
+      </li>
+
+      <!--<li class="item comments">{{comment.comment}}</li>-->
+
+    </div>
+
+    <br>
+
+    <div class="list">
+
+      <div class="item item-button-right">
+        <label class="item item-input">
+          <input ng-model="newComment" type="text" autofocus>
+        </label>
+        <button class="button comment" ng-click="addComment(newComment)">Send</button>
+
+
+      </div>
+      <!--<button class="button comment" ng-click="play('../../img/upvote.wav')">Play</button>-->
+
+    </div>
+
+      <!--<label class="item item-input">-->
+        <!--<span class="input-label">Email</span>-->
+        <!--<input ng-model="newUser.email" type="text">-->
+      <!--</label>-->
+      <!--<button class="button button-full button-positive" ng-click="addComment(newComment)">Add Comment</button>-->
+    <!--</div>-->
+  </ion-content>
+</ion-modal-view>

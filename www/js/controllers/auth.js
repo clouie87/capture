@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('AuthController', function($scope, $state, Auth, $ionicPopup) {
+app.controller('AuthController', function($scope, $state, Auth, $ionicPopup, $cordovaMedia, $cordovaNativeAudio) {
 
   if(Auth.signedIn()){
     console.log("user is already logged in");
@@ -8,6 +8,54 @@ app.controller('AuthController', function($scope, $state, Auth, $ionicPopup) {
   }
 
   $scope.user = {};
+
+
+  //$cordovaNativeAudio
+  //  .preloadSimple('upvote', 'img/upvote.wav')
+  //  .then(function (msg) {
+  //    alert("Success! "+msg);
+  //  }, function (error) {
+  //    alert(error);
+  //  }
+  //);
+  //
+  ////play: function (id, successCallback, errorCallback, completeCallback)
+  //
+  //$scope.play = function(){
+  //
+  //  alert("will play the sound");
+  //  $cordovaNativeAudio.play('upvote');
+  //};
+
+
+
+  //$scope.play = function(src) {
+  //  alert(src);
+  //  //var src = "../img/upvote.wav";
+  //  var media = new Media(src, function () {
+  //    alert("playAudio():Audio Success");
+  //  },
+  //  // error callback
+  //  function (err) {
+  //    alert("playAudio():Audio Error: " + JSON.stringify(err));
+  //  });
+  //
+  //  media.play();
+  //  //$cordovaMedia.play(media)
+  //};
+
+  //  var src = './img/upvote.wav';
+  //  var media = new Media(src, null, null, mediaStatusCallback);
+  //  $cordovaMedia.play(media);
+  //};
+  //
+  //var mediaStatusCallback = function(status) {
+  //  if(status == 1) {
+  //    $ionicLoading.show({template: 'Loading...'});
+  //  } else {
+  //    $ionicLoading.hide();
+  //  }
+  //};
 
   $scope.showLogin = function() {
     $scope.user = {};

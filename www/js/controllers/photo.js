@@ -101,8 +101,8 @@ app.controller('PhotoController', function($scope, $rootScope, $state, Auth, FUR
     console.log('submit button was clicked');
     var mySubmit = $ionicPopup.show({
       templateUrl: 'templates/partials/submit.html',
-      title: 'Create Photo',
-      //cssClass: 'photoUploadPopup',
+      title: 'Create Challenge',
+      //cssClass: 'createForm',
       scope: $scope,
       buttons:[{
         text: 'x',

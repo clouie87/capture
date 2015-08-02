@@ -61,6 +61,9 @@ $dark:                            #444 !default;
 .loginPlaceholders {
   color: #ffffff !important; }
 
+.createPlaceholders {
+  color: #444444 !important; }
+
 .captureTitle {
   text-align: center;
   color: white !important;
@@ -79,6 +82,31 @@ $dark:                            #444 !default;
   padding: 12% !important; }
 
 .popup-container .popup {
+  color: #444444 !important;
+  width: 80% !important;
+  background-position: center;
+  opacity: .4;
+  border: 2px solid #BCB185;
+  filter: alpha(opacity=30) !important;
+  border-radius: 5% !important; }
+
+.commentForm.popup-title {
+  color: #BCB185 !important;
+  font-size: 24px !important; }
+
+.item.comments {
+  color: #444444 !important;
+  padding-bottom: 0px !important; }
+
+.item-note.comments {
+  float: left !important;
+  padding-right: 5%; }
+
+.comment {
+  background-color: #BCB185 !important;
+  margin-top: 3% !important; }
+
+.loginPopup.popup-container .popup {
   width: 80% !important;
   background-image: url(../img/login.png);
   background-repeat: no-repeat;
@@ -87,19 +115,16 @@ $dark:                            #444 !default;
   opacity: .6;
   background-color: transparent !important;
   filter: alpha(opacity=60) !important;
-  border-radius: 10% !important; }
+  border-radius: 7% !important; }
 
-.loginPopup {
-  background-color: red; }
+.loginPopup.popup-container .popup .popup-title {
+  color: white; }
 
 .accept-name {
   column-count: 8; }
 
-.photoUploadPopup .popup-head {
-  background-color: #886aea; }
-
 .popup-title {
-  color: white;
+  color: #444444;
   font-size: 24px !important; }
 
 .popup-buttons {
@@ -235,6 +260,10 @@ img {
   padding-left: 7.7% !important;
   width: 100%; }
 
+.item .item-image-left {
+  width: 20% !important;
+  float: left !important; }
+
 .item.item-avatar {
   background-color: #BCB185;
   margin: 0;
@@ -267,6 +296,14 @@ img {
   -ms-transition: all .3s linear;
   -o-transition: all .3s linear;
   transition: all .3s linear; }
+
+.button-selected {
+  padding: 0 !important;
+  border: none !important;
+  background-color: transparent !important; }
+
+.button-selected :active {
+  border: red 2px solid; }
 
 /*!
   Ionicons, v2.0.1

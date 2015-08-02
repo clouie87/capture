@@ -74,6 +74,10 @@ $dark:                            #444 !default;
   color:#ffffff !important;
 }
 
+.createPlaceholders{
+  color:#444444 !important;
+}
+
 .captureTitle {
   text-align: center;
   color: white !important;
@@ -100,8 +104,43 @@ $dark:                            #444 !default;
   margin-left: 33% !important;
   padding: 12% !important;
 }
+.popup-container .popup{
+//.popup-container.popup {
+  color: #444444 !important;
+  width: 80% !important;
+  background-position: center;
+  opacity: .4;
+  border: 2px solid #BCB185;
+//  background-color: ghostwhite !important;
+  filter: alpha(opacity=30) !important;
+  border-radius: 5% !important;
+}
 
-.popup-container .popup {
+.commentForm.popup-title{
+  color: #BCB185 !important;
+  font-size: 24px !important;
+}
+
+.item.comments{
+  color: #444444 !important;
+  padding-bottom: 0px !important;
+}
+.list.comments{
+//  color: #444444 !important;
+//  margin-bottom: 10px !important;
+}
+
+.item-note.comments{
+  float:left !important;
+  padding-right: 5%;
+
+}
+.comment{
+  background-color: #BCB185 !important;
+  margin-top: 3% !important;
+}
+
+.loginPopup.popup-container .popup {
   width: 80% !important;
   background-image: url(../img/login.png);
   background-repeat: no-repeat;
@@ -110,30 +149,44 @@ $dark:                            #444 !default;
   opacity: .6;
   background-color: transparent !important;
   filter: alpha(opacity=60) !important;
-  border-radius: 10% !important;
+  border-radius: 7% !important;
 
 }
 
-.loginPopup{
-  background-color: red;
+.loginPopup.popup-container .popup .popup-title{
+  color: white;
 }
 
 .accept-name {
   column-count: 8;
 }
 
-.popup-head {
+.loginPopup.popup-head {
 //  border-radius: 10% 10% 0 0 !important;
 //  background-color: rgba(0,0,0,.5);
 }
-.photoUploadPopup .popup-head{
-  background-color: #886aea;
-}
+//.photoUpload.popup-container .popup {
+//  width: 80% !important;
+////  background-image: url(../img/login.png);
+////  background-repeat: no-repeat;
+////  background-size: 140%;
+////  background-position: center;
+//  opacity: .6;
+//  background-color: darkred !important;
+////  filter: alpha(opacity=60) !important;
+//  border-radius: 5% !important;
+//}
+
 .popup-title{
-  color: white;
+  color: #444444;
   font-size: 24px !important;
 }
 
+//.commentForm.popup-container .popup {
+//  width: 80% !important;
+//  opacity: .6;
+//  border-radius: 5% !important;
+//}
 .popup-buttons{
   border-radius: 10%;
   flex-direction: column !important;
@@ -315,6 +368,11 @@ img{
   width: 100%
 }
 
+.item .item-image-left {
+  width: 20% !important;
+  float: left !important;
+}
+
 .item.item-avatar{
   background-color: #BCB185;
 //  background-color: #779DB2;
@@ -359,7 +417,16 @@ img{
   transition: all .3s linear;
 }
 
+.button-selected {
+  padding: 0 !important;
+  border: none !important;
+  background-color: transparent !important;
+//  margin-bottom: ;
+}
 
+.button-selected :active{
+  border: red 2px solid;
+}
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
