@@ -1,6 +1,6 @@
 'use strict';
 
-app.factory('Challenge', function(FURL, $firebase, Auth, toaster, Photo) {
+app.factory('Challenge', function(FURL, $firebase, Auth, toaster, $q) {
   var ref = new Firebase(FURL);
   //var photos = $firebase(ref.child('photos')).$asArray();
   var challenges = $firebase(ref.child('challenges')).$asArray();

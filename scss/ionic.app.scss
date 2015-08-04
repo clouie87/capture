@@ -423,7 +423,9 @@ img{
   background-color: transparent !important;
 //  margin-bottom: ;
 }
-
+.selected {
+  border: red 2px solid;
+}
 .button-selected :active{
   border: red 2px solid;
 }

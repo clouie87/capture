@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('CreateController', function($scope, FURL, $firebase, $stateParams, $cordovaMedia, Challenge, Auth, Accept, Acceptu, Photo, Comment, $ionicGesture, $ionicModal){
+app.controller('CreateController', function($scope, FURL, $rootScope, $firebase, $stateParams, $cordovaMedia, Challenge, Auth, Accept, Acceptu, Photo, Comment, $ionicGesture, $ionicModal){
 
   $scope.searchChallenges='';
   $scope.challenges = Challenge.all;
@@ -11,9 +11,11 @@ app.controller('CreateController', function($scope, FURL, $firebase, $stateParam
   $scope.acceptChallenges =[];
   $scope.accepteds = Accept.all;
   $scope.accept = [];
+  $rootScope.accept = [];
+  $rootScope.Useraccept = [];
 
   $scope.photos = Photo.all;
-  console.log($scope.photos);
+  //console.log($scope.photos);
   var currentUser = Auth.user;
   var uid = currentUser.uid;
 
@@ -21,15 +23,14 @@ app.controller('CreateController', function($scope, FURL, $firebase, $stateParam
   /////////////////   GET ALL THE CHALLENGES THAT CURRENT USER HAS ACCEPTED ///////////////
   Acceptu.getAcceptsForUser(uid).$asArray().$loaded().then(function (acceptUser) {
     $scope.acceptUser = acceptUser;
-    //console.log('the user accept is', acceptUser);
+    console.log('the user accept is', acceptUser);
+    $rootScope.acceptUser = $scope.acceptUser;
   });
 
   $scope.isActive = function (challengeId){
-
     for (var i = 0; i < $scope.acceptUser.length; i++) {
-      //console.log('the scope is ', $scope.acceptUser.length);
       if ($scope.acceptUser[i].challengeId === challengeId && $scope.acceptUser[i].status === "on") {
-
+        //$scope.acceptUser = $scope.acceptUser[i].challengeId;
         return true;
       }
     }
@@ -45,7 +46,7 @@ app.controller('CreateController', function($scope, FURL, $firebase, $stateParam
       //console.log(acceptedChallenge.length);
 
       for(var i = 0; i < acceptedChallenge.length; i ++){
-        console.log('the data is ', acceptedChallenge[i]);
+        //console.log('the data is ', acceptedChallenge[i]);
         var acceptName = acceptedChallenge[i].$id;
         $scope.accept[acceptName]= [];
         Accept.getAcceptsForChallenge(acceptName).$asArray().$loaded().then(function (acceptedName) {
@@ -55,8 +56,10 @@ app.controller('CreateController', function($scope, FURL, $firebase, $stateParam
               //console.log(acceptedName[j].challengeId);
               $scope.accept[acceptedName[j].challengeId].push(acceptedName[j].name);
 
+
             }
-          //console.log($scope.accept);
+          $rootScope.accept = $scope.accept;
+          //console.log($rootScope.accept);
 
         });
       }
@@ -77,6 +80,7 @@ app.controller('CreateController', function($scope, FURL, $firebase, $stateParam
     console.log('selected Challenge is 2 ', challenge);
     $scope.accepteds = Accept.accepteds(challenge.$id);
     console.log($scope.accepteds);
+    //console.log('the accept users are:', $rootScope.acceptUser);
     //$scope.accepteds = Accept.accepteds(challenge.$id);
 
   }
@@ -130,7 +134,7 @@ app.controller('CreateController', function($scope, FURL, $firebase, $stateParam
               console.log(acceptedName[j].challengeId);
               $scope.accept[acceptedName[j].challengeId].push(acceptedName[j].name);
             }
-            console.log($scope.accept);
+            //console.log($scope.accept);
           });
         if(!$scope.$$phase){
           $scope.$apply();
@@ -138,9 +142,20 @@ app.controller('CreateController', function($scope, FURL, $firebase, $stateParam
         console.log('saved active_challenge');
       });
 
+    console.log('the accepteds are"', $rootScope.acceptUser);
+
+    var acceptu = {
+      status: 'on',
+      created: acceptDatetime,
+      user: Auth.user.uid,
+      name: currentUser.profile.name,
+      challengeId: challenge.$id,
+      image: challenge.image
+    };
 
     //Save the accept object to the accepted_challenges database//
-      Acceptu.addActivate(uid, $scope.selectedChallenge.$id, accept).then(function(){
+      Acceptu.addActivate(uid, $scope.selectedChallenge.$id, acceptu).then(function(){
+        console.log('the accepteds are"', $rootScope.acceptUser)
         console.log('saved active_user', uid);
 
       });
@@ -170,6 +185,9 @@ app.controller('CreateController', function($scope, FURL, $firebase, $stateParam
 
         Accept.getAccepts(challenge).$asArray().$loaded().then(function(userName) {
           console.log(userName);
+
+          console.log('the accepts are ', $scope.accept);
+
           for (var i = 0; i < userName.length; i++) {
             if (userName[i].user === uid) {
               console.log('will be deleting', userName[i].$id);

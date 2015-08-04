@@ -6,12 +6,12 @@
   <ion-content class="padding">
    <div>
     List of Challenges
-    <div class="row" ng-repeat="challenge in challenges track by $index" ng-if="$index % 4 == 0">
+    <div class="row" ng-repeat="challenge in challenges track by $index" ng-if="$index % 4 == 0" ng-class="{'selected': challenge.selected}">
       <div class="col col-25"  ng-repeat="i in [$index, $index + 1, $index + 2, $index + 3]" ng-if="challenges[i] != null">
         <!--<div class="col col-25">-->
           <!--<div ng-show = "select(challenges[i])">-->
               <div class="button button-selected" ng-click="select(challenges[i])" >
-                <img style="width: 100%; height:100%" ng-src="{{challenges[i].image}}">
+                <img style="width: 100%; height:100%" ng-src="{{challenges[i].image}}" ng-model="challenge.selected">
               </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
     <!--<input type="hidden" ng-model="photo.challenge" value="12" />-->
 
     <div ng-if="selected">
-      Challenge: {{challengeName}}
+      Challenge: {{challengeId}}
       <input type="hidden" ng-model="photo.challenge" ng-value="challengeId" />
       <!--{{$scope.challengeId}}-->
     </div>

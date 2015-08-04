@@ -33,6 +33,8 @@ app.factory('Acceptu', function(FURL, $firebase, Auth, Challenge, toaster) {
       var accepteds_user = this.accepteds(uid);
       console.log(accepteds_user);
 
+
+
       if(accepteds_user) {
         console.log('adding to accepteds_user');
         return accepteds_user.$add(accept);

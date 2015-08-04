@@ -302,6 +302,9 @@ img {
   border: none !important;
   background-color: transparent !important; }
 
+.selected {
+  border: red 2px solid; }
+
 .button-selected :active {
   border: red 2px solid; }
 
