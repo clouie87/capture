@@ -107,7 +107,7 @@ $dark:                            #444 !default;
   margin-top: 3% !important; }
 
 .loginPopup.popup-container .popup {
-  width: 80% !important;
+  width: 90% !important;
   background-image: url(../img/login.png);
   background-repeat: no-repeat;
   background-size: 140%;
@@ -303,7 +303,7 @@ img {
   background-color: transparent !important; }
 
 .selected {
-  border: red 2px solid; }
+  border: #51BC1D 2px solid !important; }
 
 .button-selected :active {
   border: red 2px solid; }

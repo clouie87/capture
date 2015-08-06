@@ -18,7 +18,7 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function($scope, $rootScope, $ionicModal, Challenge, Photo, Auth) {
+.controller('AccountCtrl', function($scope, $rootScope, $ionicModal, Challenge, Photo, PhotoChallenge, Auth) {
 
   $scope.challenges = $rootScope.acceptUser;
   $scope.photos = Photo.all;
@@ -61,50 +61,64 @@ angular.module('starter.controllers', [])
       console.log('opening model');
       console.log($scope.challenges);
       $scope.modal.show();
-      //var challengeId = challenge.$id;
 
-      //Comment.allComments(challengeId).$asArray().$loaded().then(function (comments){
-      //  console.log('the comments for this challenge are ', comments);
-      //  $scope.comments = comments;
-      //
-      //  for(var c =0; c< comments.length; c++){
-      //    console.log(comments[c].comment);
-      //    $scope.comment = comments[c];
-      //
         };
 
-    $scope.select = function(challenge){
+    $scope.selected = -1;
+    $scope.photo = {};
 
-      $scope.$emit('ChangeColor');
+    $scope.select = function(index){
+
+
+      //$scope.challengeId = challenge.challengeId;
+      $scope.selected = index;
+
+
+      console.log('the challenge id is ', $scope.selected);
+      //console.log('the challenge is ', challenge.challengeId);
+      //console.log('the challenge is ', challenge);
+
+
+    };
+
+    $scope.make = function(challenge){
       $scope.photo = challenge;
       $scope.challengeId = challenge.$id;
-      //$scope.challengeName = challenge.description;
 
-      console.log('the challenge id is ', $scope.challengeId);
+      console.log('the challenge is ', challenge.challengeId);
+      //console.log('the challenge is ', challenge);
 
-      //console.log('the challenge id is ', $scope.challengeName);
       if($scope.challengeId){
-        //$scope.photo.challengeId = $scope.challengeId;
-        $scope.selected = true;
+        $scope.made = true;
 
-
-        //selectChallenge.select();
       }
+
     };
+
 
     $scope.submitPhoto = function(photo){
       console.log(photo);
-      console.log('challengeId:', photo.$id, 'name', photo.photoName);
+      console.log('challengeId:', photo.challengeId, 'name', photo.photoName);
 
-      var newPhoto = {
-        submitter: Auth.user.profile.name,
-        submitterId: uid,
-        name: photo.photoName,
-        challengeId: photo.$id,
-        photo: 'tbd'
-      };
+      $scope.photo.imageURI = $rootScope.data.imageURI;
 
-      console.log(newPhoto)
+      Photo.submitPhoto(photo).then(function(){
+        //            toaster.pop('Success', "photo is saved");
+      });
+
+      PhotoChallenge.photoSave(photo).then(function(){
+        console.log('success');
+      });
+
+      //var newPhoto = {
+      //  submitter: Auth.user.profile.name,
+      //  submitterId: uid,
+      //  name: photo.photoName,
+      //  challengeId: photo.challengeId,
+      //  photo: photo.imageURI
+      //};
+      //
+      //console.log(newPhoto)
 
     }
 

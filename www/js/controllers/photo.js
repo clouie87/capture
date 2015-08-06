@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('PhotoController', function($scope, $rootScope, $state, Auth, FURL, $ionicPopup, $cordovaCamera, toaster, Photo, $ionicModal, Challenge, Accept){
+app.controller('PhotoController', function($scope, $rootScope, $state, Auth, FURL, $ionicPopup, $cordovaCamera, toaster, Photo, PhotoChallenge, $ionicModal, Challenge, Accept){
   console.log('got to the PhotoContoller linked');
 
   $scope.photos = Photo.all;
@@ -114,52 +114,49 @@ app.controller('PhotoController', function($scope, $rootScope, $state, Auth, FUR
   });
 
   $scope.openModal = function() {
-    //$scope.play = function(src) {
-
     console.log('opening model');
     $scope.modal.show();
-    //var challengeId = challenge.$id;
-
-    //Comment.allComments(challengeId).$asArray().$loaded().then(function (comments){
-    //  console.log('the comments for this challenge are ', comments);
-    //  $scope.comments = comments;
-    //
-    //  for(var c =0; c< comments.length; c++){
-    //    console.log(comments[c].comment);
-    //    $scope.comment = comments[c];
-    //
   };
 
-  $scope.select = function(challenge){
-    //console.log('the challenge selected is', challenge);
+  $scope.selected = -1;
+
+  $scope.select = function(index){
+
+    $scope.selected = index;
+
+    console.log('the challenge id is ', $scope.selected);
+  };
+
+  $scope.make = function(challenge){
     $scope.photo = challenge;
     $scope.challengeId = challenge.$id;
-    $scope.challengeName = challenge.description;
-    console.log('the challenge id is ', $scope.challengeId);
+
+    console.log('the challenge is ', challenge.challengeId);
+    //console.log('the challenge is ', challenge);
+
     if($scope.challengeId){
-      //$scope.photo.challengeId = $scope.challengeId;
-      $scope.selected = true;
+      $scope.made = true;
+
     }
+
   };
 
-  $scope.submitPhoto = function(photo){
+
+  $scope.submitPhoto = function(photo) {
     console.log(photo);
-    console.log('challengeId:', photo.$id, 'name', photo.photoName);
+    console.log('challengeId:', photo.challengeId, 'name', photo.photoName);
 
-    var newPhoto = {
-      submitter: Auth.user.profile.name,
-      submitterId: Auth.user.uid,
-      name: photo.photoName,
-      challengeId: photo.$id,
-      photo: 'tbd'
-    };
+    $scope.photo.imageURI = $rootScope.data.imageURI;
 
-    console.log(newPhoto)
+    Photo.submitPhoto(photo).then(function () {
+      $scope.modal.hide();
+      toaster.pop('success', "Photo saved!");
+    });
 
-  }
-
-//});
-
+    PhotoChallenge.photoSave(photo).then(function(){
+      console.log('success');
+    });
+  };
 
   ///////////////////////////////////Create Form///////////////////////////////////
   $scope.createForm = function(){

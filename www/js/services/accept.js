@@ -7,7 +7,6 @@ app.factory('Accept', function(FURL, $firebase, Auth, Challenge, toaster) {
   var uid = Auth.user.uid;
   console.log(uid);
   var name = Auth.user.profile.name;
-  console.log('name', name);
 
   var Accept = {
     all: accepteds,

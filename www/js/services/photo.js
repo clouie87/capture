@@ -2,8 +2,10 @@
 
 app.factory('Photo', function(FURL, $firebase, Auth, toaster) {
   var ref = new Firebase(FURL);
+  var uid = Auth.user.uid;
 
-  var photos = $firebase(ref.child('photos')).$asArray();
+  var photos = $firebase(ref.child('photos').child(uid)).$asArray();
+  var photo_challenge = $firebase(ref.child('photo_challenge')).$asArray();
   var challenges = $firebase(ref.child('challenges')).$asArray();
   var user = Auth.user;
 
@@ -14,37 +16,29 @@ app.factory('Photo', function(FURL, $firebase, Auth, toaster) {
     return $firebase(ref.child('photo').child(photoId));
     },
 
-    photoSave: function(photo){
-      console.log('made it to photoSave!');
-    },
 
     submitPhoto: function(photo){
-      console.log(photo.name, 'is photo name');
-      console.log(Auth.user.uid);
-
       photo.datetime = Firebase.ServerValue.TIMESTAMP;
 
       var data = photo.imageURI;
       var imageSave = "data:image/jpeg;base64," + data;
 
         var obj ={
-          //photoId: newPhoto.key(),
-          //type: true,
           challengeId: photo.challengeId,
           creator: Auth.user.uid,
-          created: photo.datetime,
           name: photo.name,
-          description: photo.description,
+          created: photo.datetime,
+          title: photo.photoName,
           image: imageSave
         };
-
-          console.log('object i want ot save is', obj);
+      console.log('object i want ot save is', obj);
 
         return photos.$add(obj).then(function(){
         //alert("Image has been uploaded");
       });
 
     },
+
     createPhoto: function(photo){
       photo.datetime = Firebase.ServerValue.TIMESTAMP;
 
@@ -56,7 +50,7 @@ app.factory('Photo', function(FURL, $firebase, Auth, toaster) {
         creator: Auth.user.uid,
         created: photo.datetime,
         name: photo.name,
-        description: photo.description,
+        //description: photo.description,
         image: imageSave
       };
 
