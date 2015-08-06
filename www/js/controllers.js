@@ -18,7 +18,7 @@ angular.module('starter.controllers', [])
   $scope.chat = Chats.get($stateParams.chatId);
 })
 
-.controller('AccountCtrl', function($scope, $rootScope, $ionicModal, Challenge, Photo, PhotoChallenge, Auth) {
+.controller('AccountCtrl', function($scope, $rootScope, $ionicModal, Acceptu, Challenge, Photo, PhotoChallenge, Auth) {
 
   $scope.challenges = $rootScope.acceptUser;
   $scope.photos = Photo.all;
@@ -47,6 +47,10 @@ angular.module('starter.controllers', [])
     });
 
     $scope.openModal = function() {
+
+      console.log($rootScope.acceptUser);
+
+
       //$scope.play = function(src) {
       //for(var j = 0; j< $rootScope.acceptUser.length; j++){
       //  var c_id = $rootScope.acceptUser[j].challengeId;
@@ -68,6 +72,8 @@ angular.module('starter.controllers', [])
     $scope.photo = {};
 
     $scope.select = function(index){
+
+
 
 
       //$scope.challengeId = challenge.challengeId;
@@ -103,7 +109,23 @@ angular.module('starter.controllers', [])
       $scope.photo.imageURI = $rootScope.data.imageURI;
 
       Photo.submitPhoto(photo).then(function(){
-        //            toaster.pop('Success', "photo is saved");
+
+        for (var i = 0; i < $scope.acceptUser.length; i++) {
+          //console.log('the scope is ', $scope.acceptUser);
+          if ($scope.acceptUser[i].challengeId === photo.challengeId && $scope.acceptUser[i].status === "on") {
+
+            var acceptedId = $scope.acceptUser[i];
+            console.log(acceptedId);
+            //var challenge = $scope.selectedChallenge.$id;
+
+            Acceptu.photoAdd(uid, acceptedId).then(function () {
+              console.log('in the then function of deActivate for Acceptu');
+
+            });
+
+            //            toaster.pop('Success', "photo is saved");
+          }
+        }
       });
 
       PhotoChallenge.photoSave(photo).then(function(){

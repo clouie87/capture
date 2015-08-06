@@ -45,6 +45,12 @@ app.factory('Acceptu', function(FURL, $firebase, Auth, Challenge, toaster) {
       acceptedId = acceptedId.$id;
 
       return this.getAccept(uid, acceptedId).$remove();
+    },
+    photoAdd: function(uid, acceptedId) {
+      acceptedId = acceptedId.$id;
+
+      return this.getAccept(uid, acceptedId).$update({status: 'off'});
+
     }
 
   };
